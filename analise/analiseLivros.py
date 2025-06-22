@@ -1,26 +1,41 @@
 import pandas as pd
-from dadosLivros import pesquisarLivro
+from analise.dadosLivros import pesquisarLivro
+from utils.logger import configurarLogger
+
+logger = configurarLogger()
 
 def formatacaoDados(info):
     if info:
+        logger.info("Iniciando formatação dos dados retornados pela API.")
         colunas_Principais = ['title', 'author_name', 'first_publish_year', 'isbn', 'publisher', 'subjects', 'numbers_of_pages']
-        df = pd.DataFrame(info['docs'], columns=colunas_Principais)
 
-        df.rename(columns={
-            'title': 'Título',
-            'author_name': 'Autor',
-            'first_publish_year': 'Ano de Publicação',
-            'isbn': 'ISBN',
-            'publisher': 'Editora',
-            'subjects': 'Temas',
-            'number_of_pages': 'Paginas'
-        }, inplace=True)
-    
-        df = df.astype(str).fillna('Desconhecido')
-        
-        return df
+        try:
+            df = pd.DataFrame(info['docs'], columns=colunas_Principais)
+
+            df.rename(columns={
+                'title': 'Título',
+                'author_name': 'Autor',
+                'first_publish_year': 'Ano de Publicação',
+                'isbn': 'ISBN',
+                'publisher': 'Editora',
+                'subjects': 'Temas',
+                'number_of_pages_median': 'Paginas',
+                'ratings_count': 'Notas'
+            }, inplace=True)
+
+            df = df.astype(str).fillna('Desconhecido')
+
+            logger.info(f"Formatação concluída com sucesso. Total de registros: {len(df)}")
+            return df
+
+        except KeyError as e:
+            logger.error(f"Erro ao formatar os dados: chave ausente - {e}")
+            return None
+        except Exception as e:
+            logger.critical(f"Erro inesperado durante formatação: {e}")
+            return None
     else:
-        print("Nenhum dado retornado pela função pesquisarLivro().")
+        logger.warning("Nenhum dado retornado pela função pesquisarLivro().")
         return None
 
 def filtragemAvancada(df, filtros):

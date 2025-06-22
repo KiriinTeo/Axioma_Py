@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from analiseLivros import formatacaoDados, pesquisarLivro, pd
+from analise.analiseLivros import formatacaoDados, pesquisarLivro, pd
 
 df = formatacaoDados(pesquisarLivro(titulo="The Hobbit", autor="J.R.R. Tolkien"))
 

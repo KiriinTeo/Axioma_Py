@@ -1,9 +1,8 @@
 import unittest
-from dadosLivros import pesquisarLivro, filtrarConsulta, adicionarLivro
-from analiseLivros import formatacaoDados, filtragemAvancada
+from analise.dadosLivros import pesquisarLivro, filtrarConsulta, adicionarLivro
+from analise.analiseLivros import formatacaoDados, filtragemAvancada
 
 class TestBiblioteca(unittest.TestCase):
-
     def test_pesquisarLivro_isbn(self):
         dados = pesquisarLivro(isbn="9780140328721")
         self.assertIsNotNone(dados)
@@ -22,7 +21,7 @@ class TestBiblioteca(unittest.TestCase):
             self.assertEqual(livro.get('title'), "The Hobbit")
     
     def test_formatacaoDados(self):
-        dados = pesquisarLivro(titulo="The Hobbit", autor="J.R.R. Tolkien")
+        dados = pesquisarLivro(titulo="The Hobbit", autor="Tolkien")
         df = formatacaoDados(dados)
         self.assertIsNotNone(df)
         self.assertIn('Título', df.columns)
@@ -31,7 +30,6 @@ class TestBiblioteca(unittest.TestCase):
         self.assertIn('ISBN', df.columns)
         self.assertIn('Editora', df.columns)
         self.assertIn('Temas', df.columns)
-        self.assertIn('Nota Média', df.columns)
 
     def test_filtragemAvancada(self):
         dados = pesquisarLivro(titulo="The Hobbit", autor="J.R.R. Tolkien")

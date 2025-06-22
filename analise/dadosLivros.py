@@ -1,5 +1,5 @@
 import requests, json
-from statLivros import CircularLinkedList as cll
+from analise.statLivros import CircularLinkedList as cll
 
 def consultaLivro(titulo=None, autor=None, isbn=None):
     url_Basica = "https://openlibrary.org/search.json"
