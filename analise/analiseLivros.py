@@ -18,9 +18,7 @@ def formatacaoDados(info):
                 'first_publish_year': 'Ano de Publicação',
                 'isbn': 'ISBN',
                 'publisher': 'Editora',
-                'subjects': 'Temas',
-                'number_of_pages_median': 'Paginas',
-                'ratings_count': 'Notas'
+                'subjects': 'Temas'
             }, inplace=True)
 
             df = df.astype(str).fillna('Desconhecido')
