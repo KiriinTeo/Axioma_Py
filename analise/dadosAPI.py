@@ -76,3 +76,16 @@ class LivrosAPI(APIDados):
                 print("-" * 40)
 
             return dados_filtrados if dados_filtrados else None
+        
+class JogosAPI(APIDados):
+    def __init__(self, api_url, query=None, limit=None):
+        params = {}
+        if query:
+            params['search'] = query
+        if limit:
+            params['limit'] = limit
+        
+        super(). __init__(api_url,  params)
+
+    
+

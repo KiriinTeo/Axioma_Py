@@ -1,5 +1,3 @@
-#Inicialização da config
-
 import yaml
 
 def carregar_config(path="config.yaml"):

@@ -1,5 +1,7 @@
 from utils.carregarConfig import carregar_config
-from analise.dadosLivros import LivrosAPI
+from analise.dadosAPI import LivrosAPI
+from analise.dadosFormatar import padronizar_dados
+from coleta.local_Coleta import carregarArquivoLoc
 from utils.io import salvar_dados
 
 import logging
@@ -37,9 +39,9 @@ def menu_operacoes_dados(dados):
         if opcao == '1':
             for livro in dados:
                 print(f"Título: {livro.get('title', 'N/A')}")
-                autores = livro.get('author_name', livro.get('authors', []))
+                autores = livro.get('author_name', [])
                 print(f"Autor: {', '.join(autores)}")
-                print(f"Ano: {livro.get('first_publish_year', livro.get('publish_date', 'N/A'))}")
+                print(f"Ano: {livro.get('first_publish_year', 'N/A')}")
                 print(f"ISBN: {', '.join(livro.get('isbn', ['N/A']))}")
                 print("-" * 40)
 
@@ -85,10 +87,13 @@ def main():
 
                 menu_operacoes_dados(dados)
 
-            case '2':
+            case '2':  # Coleta via arquivo local
                 print("\n--- Carregar Arquivo Local ---")
-                caminho = input("Digite o caminho do arquivo: ")
-                # carregar_arquivo(caminho)
+                df = carregarArquivoLoc()
+                if df is not None:
+                    df_padronizado = padronizar_dados(df)
+                    dados = df_padronizado.to_dict(orient='records')
+                    menu_operacoes_dados(dados)
 
             case '3':
                 print("\n--- Coleta via Scraping (a ser implementado) ---")

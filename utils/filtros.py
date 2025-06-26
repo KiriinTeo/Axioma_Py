@@ -5,3 +5,4 @@ def filtrar_dados(dados, filtros):
             if all(str(item.get(campo, '')).lower() == str(valor).lower() for campo, valor in filtros.items() if valor):
                 resultado.append(item)
     return resultado
+
