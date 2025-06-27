@@ -1,35 +1,21 @@
-def padronizar_dados(df, mapeamento_usuario):
-    """
-    df: DataFrame carregado
-    mapeamento_usuario: dict onde o usuário informa qual coluna representa cada campo padrão.
-    Exemplo:
-        {
-            'title': 'Nome do Livro',
-            'author': 'Escritor',
-            'year': 'Ano de Publicação',
-            'location': 'País de Origem'
-        }
-    """
+def formatar_colunas(df):
+    print(f"\nColunas disponíveis no arquivo: {list(df.columns)}")
+
+    colunas_selecionadas = input("Digite as colunas que deseja manter, separadas por vírgula: ").split(',')
+    colunas_selecionadas = [col.strip() for col in colunas_selecionadas]
+
+    mapeamento = {}
+    for coluna in colunas_selecionadas:
+        novo_nome = input(f"Digite o novo nome para a coluna '{coluna}' (ou pressione Enter para manter o nome atual): ")
+        if novo_nome.strip():
+            mapeamento[coluna] = novo_nome.strip()
+        else:
+            mapeamento[coluna] = coluna  # Mantém o nome original
 
     try:
-        df_padrao = {}
-
-        df_padrao = df.rename(columns=mapeamento_usuario)
-
-        campos_padroes = list(mapeamento_usuario.keys())
-        for campo in campos_padroes:
-            if campo not in df_padrao.columns:
-                df_padrao[campo] = 'N/A'
-
-        # Opcional: garantir que campos como autor e isbn sejam listas
-        if 'author' in df_padrao.columns:
-            df_padrao['author'] = df_padrao['author'].apply(lambda x: x if isinstance(x, list) else [x])
-
-        if 'isbn' in df_padrao.columns:
-            df_padrao['isbn'] = df_padrao['isbn'].apply(lambda x: x if isinstance(x, list) else [x])
-
-        return df_padrao.to_dict(orient='records')
-
+        df_formatado = df[colunas_selecionadas].rename(columns=mapeamento)
+        print("\nDados formatados com sucesso!")
+        return df_formatado.to_dict(orient='records')
     except Exception as e:
-        print(f"Erro ao padronizar os dados: {e}")
+        print(f"Erro ao formatar os dados: {e}")
         return None

@@ -1,0 +1,1154 @@
+[
+    {
+        "author_key": [
+            "OL411267A",
+            "OL2726848A"
+        ],
+        "author_name": [
+            "Mark Lutz",
+            "David Ascher"
+        ],
+        "cover_edition_key": "OL9497269M",
+        "cover_i": 1312568,
+        "ebook_access": "borrowable",
+        "edition_count": 22,
+        "first_publish_year": 1999,
+        "has_fulltext": true,
+        "ia": [
+            "einfuhrunginpyth0000lutz",
+            "learningpython00lutz",
+            "learningpythonth00lutz"
+        ],
+        "ia_collection_s": "americana;inlibrary;internetarchivebooks;printdisabled;schroederlibrary-ol",
+        "key": "/works/OL2784125W",
+        "language": [
+            "eng",
+            "ger"
+        ],
+        "lending_edition_s": "OL37873566M",
+        "lending_identifier_s": "einfuhrunginpyth0000lutz",
+        "public_scan_b": false,
+        "title": "Learning Python"
+    },
+    {
+        "author_key": [
+            "OL411267A"
+        ],
+        "author_name": [
+            "Mark Lutz"
+        ],
+        "cover_edition_key": "OL8942751M",
+        "cover_i": 988215,
+        "ebook_access": "borrowable",
+        "edition_count": 13,
+        "first_publish_year": 1998,
+        "has_fulltext": true,
+        "ia": [
+            "pythonpocketrefe00lutz_1",
+            "pythonpocketrefe00lutz",
+            "pythonpocketrefe00lutz_063"
+        ],
+        "ia_collection_s": "americana;binghamton-ol;inlibrary;internetarchivebooks;printdisabled;the-claremont-colleges-ol",
+        "key": "/works/OL2784127W",
+        "language": [
+            "ger",
+            "fre",
+            "eng"
+        ],
+        "lending_edition_s": "OL24453347M",
+        "lending_identifier_s": "pythonpocketrefe00lutz_1",
+        "public_scan_b": false,
+        "subtitle": "Pocket Reference",
+        "title": "Python"
+    },
+    {
+        "author_key": [
+            "OL6815485A",
+            "OL12493148A"
+        ],
+        "author_name": [
+            "Allen B. Downey",
+            "Allen Downey"
+        ],
+        "cover_edition_key": "OL25763659M",
+        "cover_i": 7363360,
+        "ebook_access": "public",
+        "edition_count": 11,
+        "first_publish_year": 2009,
+        "has_fulltext": true,
+        "ia": [
+            "2015ThinkPython",
+            "thinkpythonintro0000alle",
+            "thinkpython00down_280"
+        ],
+        "ia_collection_s": "additional_collections;folkscanomy;folkscanomy_computer;folkscanomy_computer_inbox;inlibrary;internetarchivebooks;printdisabled",
+        "key": "/works/OL16976951W",
+        "language": [
+            "eng"
+        ],
+        "lending_edition_s": "OL26455778M",
+        "lending_identifier_s": "2015ThinkPython",
+        "public_scan_b": true,
+        "title": "Think Python"
+    },
+    {
+        "author_key": [
+            "OL7309633A"
+        ],
+        "author_name": [
+            "Wes McKinney"
+        ],
+        "cover_i": 7548132,
+        "ebook_access": "unclassified",
+        "edition_count": 8,
+        "first_publish_year": 2012,
+        "has_fulltext": false,
+        "ia": [
+            "pythonfordataana00mcki"
+        ],
+        "key": "/works/OL17422847W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Python For Data Analysis"
+    },
+    {
+        "author_key": [
+            "OL1521655A",
+            "OL2726848A",
+            "OL3696341A",
+            "OL4750007A"
+        ],
+        "author_name": [
+            "Alex Martelli",
+            "David Ascher",
+            "David Beazley",
+            "Brian K. Jones"
+        ],
+        "cover_edition_key": "OL3701882M",
+        "cover_i": 388536,
+        "ebook_access": "borrowable",
+        "edition_count": 7,
+        "first_publish_year": 2002,
+        "has_fulltext": true,
+        "ia": [
+            "pythoncookbook00mart",
+            "pythoncookbook0000beaz",
+            "pythoncookbook00mart_019"
+        ],
+        "ia_collection_s": "americana;americanuniversity-ol;inlibrary;internetarchivebooks;printdisabled;the-claremont-colleges-ol;universityofarizona-ol;wilsoncollege-ol",
+        "key": "/works/OL14873289W",
+        "language": [
+            "eng"
+        ],
+        "lending_edition_s": "OL3701882M",
+        "lending_identifier_s": "pythoncookbook00mart",
+        "public_scan_b": false,
+        "title": "Python Cookbook"
+    },
+    {
+        "author_key": [
+            "OL7584543A"
+        ],
+        "author_name": [
+            "Luciano Ramalho"
+        ],
+        "cover_edition_key": "OL27112900M",
+        "cover_i": 8743408,
+        "ebook_access": "borrowable",
+        "edition_count": 6,
+        "first_publish_year": 2015,
+        "has_fulltext": true,
+        "ia": [
+            "fluentpython0000rama"
+        ],
+        "ia_collection_s": "binghamton-ol;cua-ol;inlibrary;internetarchivebooks;printdisabled;universityofoklahoma-ol",
+        "key": "/works/OL19932156W",
+        "language": [
+            "eng"
+        ],
+        "lending_edition_s": "OL27112900M",
+        "lending_identifier_s": "fluentpython0000rama",
+        "public_scan_b": false,
+        "subtitle": "Clear, Concise, and Effective Programming",
+        "title": "Fluent Python"
+    },
+    {
+        "author_key": [
+            "OL7244458A"
+        ],
+        "author_name": [
+            "Al Sweigart"
+        ],
+        "cover_edition_key": "OL25763874M",
+        "cover_i": 7363640,
+        "ebook_access": "public",
+        "edition_count": 4,
+        "first_publish_year": 2015,
+        "has_fulltext": true,
+        "ia": [
+            "automatetheboringstuffwithpython_new"
+        ],
+        "ia_collection_s": "additional_collections;folkscanomy;folkscanomy_computer;folkscanomy_computer_inbox",
+        "key": "/works/OL17192141W",
+        "language": [
+            "eng",
+            "chi"
+        ],
+        "lending_edition_s": "OL25763874M",
+        "lending_identifier_s": "automatetheboringstuffwithpython_new",
+        "public_scan_b": true,
+        "subtitle": "Practical Programming for Total Beginners",
+        "title": "Automate the Boring Stuff with Python"
+    },
+    {
+        "author_key": [
+            "OL6608409A",
+            "OL333934A"
+        ],
+        "author_name": [
+            "Justin Seitz",
+            "Tim Arnold"
+        ],
+        "cover_edition_key": "OL26837925M",
+        "cover_i": 8513526,
+        "ebook_access": "borrowable",
+        "edition_count": 3,
+        "first_publish_year": 2014,
+        "has_fulltext": true,
+        "ia": [
+            "blackhatpythonje0000seit",
+            "blackhatpythonpy0000seit"
+        ],
+        "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+        "key": "/works/OL19547345W",
+        "language": [
+            "pol"
+        ],
+        "lending_edition_s": "OL38241024M",
+        "lending_identifier_s": "blackhatpythonje0000seit",
+        "public_scan_b": false,
+        "title": "Black Hat Python: Python Programming for Hackers and Pentesters"
+    },
+    {
+        "author_key": [
+            "OL7634726A"
+        ],
+        "author_name": [
+            "Eric Matthes"
+        ],
+        "cover_edition_key": "OL26494240M",
+        "cover_i": 8245395,
+        "ebook_access": "printdisabled",
+        "edition_count": 2,
+        "first_publish_year": 2015,
+        "has_fulltext": true,
+        "ia": [
+            "pythoncrashcours0000matt"
+        ],
+        "ia_collection_s": "internetarchivebooks;marymount-ol;printdisabled;universityofcoloradoboulder-ol",
+        "key": "/works/OL17920482W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "subtitle": "a hands-on, project-based introduction to programming",
+        "title": "Python crash course"
+    },
+    {
+        "author_key": [
+            "OL411267A"
+        ],
+        "author_name": [
+            "Mark Lutz"
+        ],
+        "cover_edition_key": "OL8667192M",
+        "cover_i": 805644,
+        "ebook_access": "borrowable",
+        "edition_count": 10,
+        "first_publish_year": 1996,
+        "has_fulltext": true,
+        "ia": [
+            "programmingpytho00lutz"
+        ],
+        "ia_collection_s": "americanuniversity-ol;inlibrary;internetarchivebooks;printdisabled;riceuniversity-ol;rochester-ol;unb-ol;uni-ol;wilsoncollege-ol",
+        "key": "/works/OL2784126W",
+        "language": [
+            "eng"
+        ],
+        "lending_edition_s": "OL3969544M",
+        "lending_identifier_s": "programmingpytho00lutz",
+        "public_scan_b": false,
+        "title": "Programming Python"
+    },
+    {
+        "author_key": [
+            "OL7634726A"
+        ],
+        "author_name": [
+            "Eric Matthes"
+        ],
+        "cover_edition_key": "OL27335668M",
+        "cover_i": 8800209,
+        "ebook_access": "no_ebook",
+        "edition_count": 1,
+        "first_publish_year": 2019,
+        "has_fulltext": false,
+        "key": "/works/OL20155144W",
+        "public_scan_b": false,
+        "title": "Python Crash Course, 2nd Edition"
+    },
+    {
+        "author_key": [
+            "OL7290414A",
+            "OL7290415A"
+        ],
+        "author_name": [
+            "Andreas C. Mueller",
+            "Sarah Guido"
+        ],
+        "cover_edition_key": "OL25935496M",
+        "cover_i": 7435335,
+        "ebook_access": "printdisabled",
+        "edition_count": 2,
+        "first_publish_year": 2016,
+        "has_fulltext": true,
+        "ia": [
+            "introductiontoma0000mull"
+        ],
+        "ia_collection_s": "internetarchivebooks;printdisabled",
+        "key": "/works/OL17357597W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Introduction to Machine Learning with Python"
+    },
+    {
+        "author_key": [
+            "OL11300208A"
+        ],
+        "author_name": [
+            "R. Nageswara Rao"
+        ],
+        "cover_edition_key": "OL42461457M",
+        "cover_i": 13192647,
+        "ebook_access": "no_ebook",
+        "edition_count": 1,
+        "first_publish_year": 2021,
+        "has_fulltext": false,
+        "key": "/works/OL30906747W",
+        "public_scan_b": false,
+        "title": "Core Python Programming"
+    },
+    {
+        "author_key": [
+            "OL7497234A"
+        ],
+        "author_name": [
+            "Jake VanderPlas"
+        ],
+        "cover_edition_key": "OL26836556M",
+        "cover_i": 8512092,
+        "ebook_access": "borrowable",
+        "edition_count": 2,
+        "first_publish_year": 2016,
+        "has_fulltext": true,
+        "ia": [
+            "pythondatascienc0000vand"
+        ],
+        "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+        "key": "/works/OL19545956W",
+        "language": [
+            "eng"
+        ],
+        "lending_edition_s": "OL26836556M",
+        "lending_identifier_s": "pythondatascienc0000vand",
+        "public_scan_b": false,
+        "subtitle": "Essential Tools for Working with Data",
+        "title": "Python Data Science Handbook"
+    },
+    {
+        "author_key": [
+            "OL7634726A"
+        ],
+        "author_name": [
+            "Eric Matthes"
+        ],
+        "ebook_access": "no_ebook",
+        "edition_count": 1,
+        "first_publish_year": 2022,
+        "has_fulltext": false,
+        "key": "/works/OL28018702W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Python Crash Course, 3rd Edition"
+    },
+    {
+        "author_key": [
+            "OL7660251A"
+        ],
+        "author_name": [
+            "Joshua Welsh"
+        ],
+        "cover_edition_key": "OL27401324M",
+        "cover_i": 8863687,
+        "ebook_access": "no_ebook",
+        "edition_count": 1,
+        "first_publish_year": 2017,
+        "has_fulltext": false,
+        "key": "/works/OL20212390W",
+        "public_scan_b": false,
+        "title": "Python"
+    },
+    {
+        "author_key": [
+            "OL5465970A"
+        ],
+        "author_name": [
+            "Wesley Chun"
+        ],
+        "cover_edition_key": "OL18933372M",
+        "cover_i": 7972455,
+        "ebook_access": "printdisabled",
+        "edition_count": 2,
+        "first_publish_year": 2006,
+        "has_fulltext": true,
+        "ia": [
+            "corepythonprogra00chun_0"
+        ],
+        "ia_collection_s": "internetarchivebooks;printdisabled",
+        "key": "/works/OL12409294W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Core Python programming"
+    },
+    {
+        "author_key": [
+            "OL8071196A"
+        ],
+        "author_name": [
+            "Mahesh Venkitachalam"
+        ],
+        "cover_edition_key": "OL28552494M",
+        "cover_i": 10637438,
+        "ebook_access": "printdisabled",
+        "edition_count": 2,
+        "first_publish_year": 2015,
+        "has_fulltext": true,
+        "ia": [
+            "pythonplayground0000venk"
+        ],
+        "ia_collection_s": "internetarchivebooks;printdisabled",
+        "key": "/works/OL21093399W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Python Playground"
+    },
+    {
+        "author_key": [
+            "OL6867889A"
+        ],
+        "author_name": [
+            "Paul Barry"
+        ],
+        "cover_edition_key": "OL24596470M",
+        "cover_i": 6681113,
+        "ebook_access": "borrowable",
+        "edition_count": 9,
+        "first_publish_year": 2010,
+        "has_fulltext": true,
+        "ia": [
+            "headfirstpythonz0000paul",
+            "headfirstpython00barr_076"
+        ],
+        "ia_collection_s": "inlibrary;internetarchivebooks;popularchinesebooks;printdisabled",
+        "key": "/works/OL15664278W",
+        "language": [
+            "eng",
+            "chi",
+            "ger"
+        ],
+        "lending_edition_s": "OL35343633M",
+        "lending_identifier_s": "headfirstpythonz0000paul",
+        "public_scan_b": false,
+        "title": "Head First Python"
+    },
+    {
+        "author_key": [
+            "OL58503A"
+        ],
+        "author_name": [
+            "Martin C. Brown"
+        ],
+        "cover_edition_key": "OL3971483M",
+        "cover_i": 61313,
+        "ebook_access": "no_ebook",
+        "edition_count": 3,
+        "first_publish_year": 2001,
+        "has_fulltext": false,
+        "key": "/works/OL725930W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Python"
+    },
+    {
+        "cover_edition_key": "OL27274131M",
+        "cover_i": 8758915,
+        "ebook_access": "public",
+        "edition_count": 1,
+        "first_publish_year": 2019,
+        "has_fulltext": true,
+        "ia": [
+            "pythonbasicswithillustrationsfromthefinancialmarkets"
+        ],
+        "ia_collection_s": "additional_collections;folkscanomy;folkscanomy_computer;folkscanomy_computer_inbox",
+        "key": "/works/OL20094082W",
+        "language": [
+            "eng"
+        ],
+        "lending_edition_s": "OL27274131M",
+        "lending_identifier_s": "pythonbasicswithillustrationsfromthefinancialmarkets",
+        "public_scan_b": true,
+        "subtitle": "With Illustrations from the Financial Markets",
+        "title": "Python Basics"
+    },
+    {
+        "author_key": [
+            "OL3696341A"
+        ],
+        "author_name": [
+            "David Beazley"
+        ],
+        "cover_edition_key": "OL34787222M",
+        "cover_i": 13259024,
+        "ebook_access": "no_ebook",
+        "edition_count": 3,
+        "first_publish_year": 2021,
+        "has_fulltext": false,
+        "key": "/works/OL25803481W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Python Distilled"
+    },
+    {
+        "author_key": [
+            "OL9602291A"
+        ],
+        "author_name": [
+            "Albert Sweigart"
+        ],
+        "cover_edition_key": "OL47304019M",
+        "cover_i": 13806465,
+        "ebook_access": "no_ebook",
+        "edition_count": 2,
+        "first_publish_year": 2015,
+        "has_fulltext": false,
+        "key": "/works/OL25389441W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Automate the Boring Stuff with Python"
+    },
+    {
+        "author_key": [
+            "OL9282817A"
+        ],
+        "author_name": [
+            "Byron Francis"
+        ],
+        "cover_edition_key": "OL37063551M",
+        "cover_i": 12634681,
+        "ebook_access": "borrowable",
+        "edition_count": 1,
+        "first_publish_year": 2016,
+        "has_fulltext": true,
+        "ia": [
+            "pythoncompletebe0000fran"
+        ],
+        "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+        "key": "/works/OL27302751W",
+        "language": [
+            "eng"
+        ],
+        "lending_edition_s": "OL37063551M",
+        "lending_identifier_s": "pythoncompletebe0000fran",
+        "public_scan_b": false,
+        "title": "Python"
+    },
+    {
+        "author_key": [
+            "OL13209737A"
+        ],
+        "author_name": [
+            "James R. Payne"
+        ],
+        "cover_edition_key": "OL24313335M",
+        "cover_i": 6438264,
+        "ebook_access": "unclassified",
+        "edition_count": 6,
+        "first_publish_year": 2010,
+        "has_fulltext": false,
+        "ia": [
+            "beginningpythonu00payn"
+        ],
+        "key": "/works/OL15181426W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Beginning Python"
+    },
+    {
+        "author_key": [
+            "OL9156208A",
+            "OL3300579A",
+            "OL9156209A",
+            "OL9156210A"
+        ],
+        "author_name": [
+            "David Amos",
+            "Dan Bader",
+            "Joanna Jablonski",
+            "Fletcher Heisler"
+        ],
+        "cover_edition_key": "OL32211350M",
+        "cover_i": 10859060,
+        "ebook_access": "no_ebook",
+        "edition_count": 1,
+        "first_publish_year": 2021,
+        "has_fulltext": false,
+        "key": "/works/OL24337267W",
+        "public_scan_b": false,
+        "title": "Python Basics"
+    },
+    {
+        "author_key": [
+            "OL6866038A"
+        ],
+        "author_name": [
+            "Reema Thareja"
+        ],
+        "ebook_access": "no_ebook",
+        "edition_count": 2,
+        "first_publish_year": 2019,
+        "has_fulltext": false,
+        "key": "/works/OL26755050W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Python Programming"
+    },
+    {
+        "author_key": [
+            "OL7497500A"
+        ],
+        "author_name": [
+            "Dr. Charles Russell Severance"
+        ],
+        "cover_i": 8512502,
+        "ebook_access": "printdisabled",
+        "edition_count": 1,
+        "first_publish_year": 2016,
+        "has_fulltext": true,
+        "ia": [
+            "pythonforeverybo0000seve"
+        ],
+        "ia_collection_s": "internetarchivebooks;printdisabled",
+        "key": "/works/OL19546442W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Python for Everybody"
+    },
+    {
+        "author_key": [
+            "OL7246580A"
+        ],
+        "author_name": [
+            "Sebastian Raschka"
+        ],
+        "cover_edition_key": "OL28209962M",
+        "cover_i": 10144350,
+        "ebook_access": "printdisabled",
+        "edition_count": 4,
+        "first_publish_year": 2015,
+        "has_fulltext": true,
+        "ia": [
+            "pythonmachinelea0000rasc"
+        ],
+        "ia_collection_s": "americanuniversity-ol;internetarchivebooks;printdisabled;wilsoncollege-ol",
+        "key": "/works/OL19667740W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Python machine learning"
+    },
+    {
+        "author_key": [
+            "OL3402671A"
+        ],
+        "author_name": [
+            "Steve Chimombo"
+        ],
+        "ebook_access": "no_ebook",
+        "edition_count": 3,
+        "first_publish_year": 1992,
+        "has_fulltext": false,
+        "key": "/works/OL9361421W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Python! python!"
+    },
+    {
+        "author_key": [
+            "OL2741083A",
+            "OL2741084A"
+        ],
+        "author_name": [
+            "Stef Maruch",
+            "Aahz Maruch"
+        ],
+        "cover_edition_key": "OL18001920M",
+        "cover_i": 8712020,
+        "ebook_access": "printdisabled",
+        "edition_count": 5,
+        "first_publish_year": 2006,
+        "has_fulltext": true,
+        "ia": [
+            "pythonfordummies0000maru"
+        ],
+        "ia_collection_s": "internetarchivebooks;printdisabled;trent_university",
+        "key": "/works/OL8232424W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Python for dummies"
+    },
+    {
+        "author_key": [
+            "OL7494702A"
+        ],
+        "author_name": [
+            "Francois Chollet"
+        ],
+        "cover_edition_key": "OL26832659M",
+        "cover_i": 8507718,
+        "ebook_access": "no_ebook",
+        "edition_count": 2,
+        "first_publish_year": 2017,
+        "has_fulltext": false,
+        "key": "/works/OL19541947W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Deep Learning with Python"
+    },
+    {
+        "author_key": [
+            "OL7939901A"
+        ],
+        "author_name": [
+            "Muhammad Asif"
+        ],
+        "ebook_access": "no_ebook",
+        "edition_count": 2,
+        "first_publish_year": 2021,
+        "has_fulltext": false,
+        "key": "/works/OL25804647W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Python for Geeks"
+    },
+    {
+        "author_key": [
+            "OL1482827A",
+            "OL2654695A",
+            "OL6161344A"
+        ],
+        "author_name": [
+            "Michael T. Goodrich",
+            "Roberto Tamassia",
+            "Michael H Goldwasser"
+        ],
+        "cover_edition_key": "OL26838813M",
+        "cover_i": 8514959,
+        "ebook_access": "no_ebook",
+        "edition_count": 3,
+        "first_publish_year": 2012,
+        "has_fulltext": false,
+        "key": "/works/OL19548248W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Data Structures and Algorithms in Python"
+    },
+    {
+        "author_key": [
+            "OL1427519A"
+        ],
+        "author_name": [
+            "Tony Gaddis"
+        ],
+        "cover_edition_key": "OL10461238M",
+        "cover_i": 2384057,
+        "ebook_access": "printdisabled",
+        "edition_count": 4,
+        "first_publish_year": 2008,
+        "has_fulltext": true,
+        "ia": [
+            "startingoutwithp0000gadd_z9s4"
+        ],
+        "ia_collection_s": "internetarchivebooks;printdisabled",
+        "key": "/works/OL5825093W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Starting out with Python"
+    },
+    {
+        "author_key": [
+            "OL1518186A"
+        ],
+        "author_name": [
+            "John M. Zelle"
+        ],
+        "cover_edition_key": "OL3692244M",
+        "cover_i": 935554,
+        "ebook_access": "borrowable",
+        "edition_count": 2,
+        "first_publish_year": 2003,
+        "has_fulltext": true,
+        "ia": [
+            "pythonprogrammin00zell_0"
+        ],
+        "ia_collection_s": "americanuniversity-ol;drakeuniversity-ol;inlibrary;internetarchivebooks;phillipsacademy-preview;printdisabled;rochester-ol;udc-ol;wilsoncollege-ol",
+        "key": "/works/OL6037340W",
+        "language": [
+            "eng"
+        ],
+        "lending_edition_s": "OL3692244M",
+        "lending_identifier_s": "pythonprogrammin00zell_0",
+        "public_scan_b": false,
+        "title": "Python programming"
+    },
+    {
+        "author_key": [
+            "OL9869605A"
+        ],
+        "author_name": [
+            "Max Coding"
+        ],
+        "cover_edition_key": "OL35292776M",
+        "cover_i": 12104510,
+        "ebook_access": "no_ebook",
+        "edition_count": 1,
+        "first_publish_year": 2020,
+        "has_fulltext": false,
+        "key": "/works/OL26147423W",
+        "public_scan_b": false,
+        "title": "Python for Beginners"
+    },
+    {
+        "author_key": [
+            "OL7244490A"
+        ],
+        "author_name": [
+            "Brett Slatkin"
+        ],
+        "cover_edition_key": "OL25764006M",
+        "cover_i": 7363706,
+        "ebook_access": "no_ebook",
+        "edition_count": 8,
+        "first_publish_year": 2015,
+        "has_fulltext": false,
+        "key": "/works/OL17192267W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Effective Python"
+    },
+    {
+        "author_key": [
+            "OL11080903A"
+        ],
+        "author_name": [
+            "Coding Languages Coding Languages Academy"
+        ],
+        "cover_edition_key": "OL41393874M",
+        "cover_i": 13167916,
+        "ebook_access": "no_ebook",
+        "edition_count": 1,
+        "first_publish_year": 2019,
+        "has_fulltext": false,
+        "key": "/works/OL30114909W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Coding by Doing : for Absolute Beginners - 2 Books in One - Learn SQL and Python Programming"
+    },
+    {
+        "cover_edition_key": "OL33005036M",
+        "cover_i": 11655611,
+        "ebook_access": "no_ebook",
+        "edition_count": 1,
+        "has_fulltext": false,
+        "key": "/works/OL24834346W",
+        "public_scan_b": false,
+        "title": "Concetti di informatica e fondamenti di Python"
+    },
+    {
+        "author_key": [
+            "OL839763A"
+        ],
+        "author_name": [
+            "John Guttag"
+        ],
+        "cover_i": 7851275,
+        "ebook_access": "printdisabled",
+        "edition_count": 3,
+        "first_publish_year": 2013,
+        "has_fulltext": true,
+        "ia": [
+            "introductiontoco0000gutt",
+            "introductiontocomputationandprogrammingusingpython"
+        ],
+        "ia_collection_s": "internetarchivebooks;printdisabled",
+        "key": "/works/OL17575152W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Introduction To Computation And Programming Using Python"
+    },
+    {
+        "author_key": [
+            "OL527514A"
+        ],
+        "author_name": [
+            "Martin Evans"
+        ],
+        "cover_edition_key": "OL40711179M",
+        "cover_i": 13943369,
+        "ebook_access": "no_ebook",
+        "edition_count": 10,
+        "first_publish_year": 2018,
+        "has_fulltext": false,
+        "key": "/works/OL29454703W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Python"
+    },
+    {
+        "author_key": [
+            "OL7340477A"
+        ],
+        "author_name": [
+            "Jason R. Briggs"
+        ],
+        "cover_edition_key": "OL26119645M",
+        "cover_i": 9144057,
+        "ebook_access": "borrowable",
+        "edition_count": 4,
+        "first_publish_year": 2012,
+        "has_fulltext": true,
+        "ia": [
+            "pythonforkidspla0000brig"
+        ],
+        "ia_collection_s": "americanuniversity-ol;denverpubliclibrary-ol;inlibrary;internetarchivebooks;printdisabled;rochester-ol;wilsoncollege-ol;worthingtonlibraries-ol",
+        "key": "/works/OL17530235W",
+        "language": [
+            "eng"
+        ],
+        "lending_edition_s": "OL26119645M",
+        "lending_identifier_s": "pythonforkidspla0000brig",
+        "public_scan_b": false,
+        "subtitle": "A Playful Introduction to Programming",
+        "title": "Python for Kids"
+    },
+    {
+        "author_key": [
+            "OL7773753A",
+            "OL459063A"
+        ],
+        "author_name": [
+            "John Shovic",
+            "Alan Simpson"
+        ],
+        "cover_edition_key": "OL27759609M",
+        "cover_i": 9171103,
+        "ebook_access": "no_ebook",
+        "edition_count": 6,
+        "first_publish_year": 2019,
+        "has_fulltext": false,
+        "key": "/works/OL20520768W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Python All-in-One For Dummies"
+    },
+    {
+        "author_key": [
+            "OL1521655A",
+            "OL2726934A",
+            "OL2804309A"
+        ],
+        "author_name": [
+            "Alex Martelli",
+            "Anna Ravenscroft",
+            "Steve Holden"
+        ],
+        "cover_edition_key": "OL7581267M",
+        "cover_i": 389166,
+        "ebook_access": "borrowable",
+        "edition_count": 8,
+        "first_publish_year": 2002,
+        "has_fulltext": true,
+        "ia": [
+            "pythoninnutshell00mart",
+            "pythoninnutshell00mart",
+            "pythoninnutshell0000mart_a1w4",
+            "pythonnutshell00mart"
+        ],
+        "ia_collection_s": "americanuniversity-ol;drakeuniversity-ol;inlibrary;internetarchivebooks;johnshopkins-ol;printdisabled;wilsoncollege-ol",
+        "key": "/works/OL6045694W",
+        "language": [
+            "eng"
+        ],
+        "lending_edition_s": "OL24749091M",
+        "lending_identifier_s": "pythoninnutshell00mart",
+        "public_scan_b": false,
+        "title": "Python in a Nutshell"
+    },
+    {
+        "author_key": [
+            "OL7335174A"
+        ],
+        "author_name": [
+            "Narasimha Karumanchi"
+        ],
+        "cover_edition_key": "OL26836772M",
+        "cover_i": 8512282,
+        "ebook_access": "no_ebook",
+        "edition_count": 1,
+        "first_publish_year": 2015,
+        "has_fulltext": false,
+        "key": "/works/OL19546184W",
+        "public_scan_b": false,
+        "title": "Data Structure and Algorithmic Thinking with Python: Data Structure and Algorithmic Puzzles"
+    },
+    {
+        "author_key": [
+            "OL10788477A"
+        ],
+        "author_name": [
+            "Alex Jaxson"
+        ],
+        "ebook_access": "no_ebook",
+        "edition_count": 1,
+        "first_publish_year": 2022,
+        "has_fulltext": false,
+        "key": "/works/OL29179198W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Python Programming Crash Course"
+    },
+    {
+        "author_key": [
+            "OL1427519A"
+        ],
+        "author_name": [
+            "Tony Gaddis"
+        ],
+        "cover_edition_key": "OL28189546M",
+        "cover_i": 10125537,
+        "ebook_access": "printdisabled",
+        "edition_count": 2,
+        "first_publish_year": 2020,
+        "has_fulltext": true,
+        "ia": [
+            "startingoutwithp0003gadd"
+        ],
+        "ia_collection_s": "internetarchivebooks;printdisabled",
+        "key": "/works/OL20761723W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Starting Out with Python"
+    },
+    {
+        "author_key": [
+            "OL6422948A"
+        ],
+        "author_name": [
+            "Patricia Harris"
+        ],
+        "cover_edition_key": "OL30400550M",
+        "cover_i": 12866278,
+        "ebook_access": "borrowable",
+        "edition_count": 1,
+        "first_publish_year": 2016,
+        "has_fulltext": true,
+        "ia": [
+            "understandingcod0000harr_t7w9"
+        ],
+        "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+        "key": "/works/OL22321333W",
+        "language": [
+            "eng"
+        ],
+        "lending_edition_s": "OL30400550M",
+        "lending_identifier_s": "understandingcod0000harr_t7w9",
+        "public_scan_b": false,
+        "title": "Understanding coding with Python"
+    },
+    {
+        "author_key": [
+            "OL8364788A"
+        ],
+        "author_name": [
+            "Computer Programming Academy"
+        ],
+        "ebook_access": "no_ebook",
+        "edition_count": 1,
+        "first_publish_year": 2019,
+        "has_fulltext": false,
+        "key": "/works/OL21891033W",
+        "language": [
+            "eng"
+        ],
+        "public_scan_b": false,
+        "title": "Python"
+    }
+]
