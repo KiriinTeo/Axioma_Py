@@ -15,7 +15,7 @@ def formatar_colunas(df):
     try:
         df_formatado = df[colunas_selecionadas].rename(columns=mapeamento)
         print("\nDados formatados com sucesso!")
-        return df_formatado.to_dict(orient='records')
+        return df_formatado
     except Exception as e:
         print(f"Erro ao formatar os dados: {e}")
         return None

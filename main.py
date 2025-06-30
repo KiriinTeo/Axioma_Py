@@ -81,17 +81,11 @@ def main():
                 if df is None:
                     continue
 
-                print("\nColunas disponíveis no arquivo:")
-                print(df.columns.tolist())
-
-                colunas_selecionadas = input("Digite as colunas que deseja manter, separadas por vírgula: ").split(',')
-                colunas_selecionadas = [col.strip() for col in colunas_selecionadas]
-
                 try:
-                    df_formatado = df[colunas_selecionadas]
-
-                    novo_mapeamento = renomear_colunas(colunas_selecionadas)
-                    df_formatado = df_formatado.rename(columns=novo_mapeamento)
+                    df_formatado = formatar_colunas(df)
+                    if df_formatado is None:
+                        print("Falha ao formatar os dados.")
+                        continue
 
                     print("\nDados formatados com sucesso!")
 
@@ -106,8 +100,8 @@ def main():
                 df = carregarArquivoLoc()
                 if df is not None:
                     dados_formatados = formatar_colunas(df)
-                    if dados_formatados:
-                        menu_operacoes_dados(dados_formatados)
+                    if dados_formatados is not None:
+                        menu_operacoes_dados(dados_formatados.to_dict(orient='records'))
                     else:
                         print("Falha ao formatar os dados.")
 
