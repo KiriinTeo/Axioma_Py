@@ -5,7 +5,6 @@ from coleta.local_Coleta import carregarArquivoLoc
 from utils.io import salvar_dados
 from utils.exibicao import exibir_dados
 from utils.leitorAPIconfig import carregar_configuracoes_api, retornar_nomesAPI
-from utils.renomeador import renomear_colunas
 
 import logging
 import argparse
@@ -110,7 +109,6 @@ def main():
 
             case '4':
                 print("\n--- Análise de Dados ---")
-                # an álise de gráficos e estatísticas
 
             case '5':
                 print("\n--- Ambiente de Testes ---")

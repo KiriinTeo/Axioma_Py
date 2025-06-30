@@ -10,12 +10,10 @@ def carregarArquivoLoc():
     try:
         if caminho.endswith('.csv'):
             try:
-                # Tenta com utf-8
                 df = pd.read_csv(caminho)
                 df.columns = df.columns.str.strip()
 
             except UnicodeDecodeError:
-                # Tenta com latin1 se falhar
                 print("Arquivo com codificação diferente de UTF-8. Tentando com 'latin1'...")
                 df = pd.read_csv(caminho, encoding='latin1')
                 df.columns = df.columns.str.strip()
