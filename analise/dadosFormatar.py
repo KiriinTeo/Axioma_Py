@@ -10,7 +10,7 @@ def formatar_colunas(df):
         if novo_nome.strip():
             mapeamento[coluna] = novo_nome.strip()
         else:
-            mapeamento[coluna] = coluna  # Mantém o nome original
+            mapeamento[coluna] = coluna  
 
     try:
         df_formatado = df[colunas_selecionadas].rename(columns=mapeamento)

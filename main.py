@@ -1,9 +1,11 @@
 from utils.carregarConfig import carregar_config
-from analise.dadosAPI import LivrosAPI
+from coleta.api_Coleta import APIDados
 from analise.dadosFormatar import formatar_colunas
 from coleta.local_Coleta import carregarArquivoLoc
 from utils.io import salvar_dados
 from utils.exibicao import exibir_dados
+from utils.leitorAPIconfig import carregar_configuracoes_api, retornar_nomesAPI
+from utils.renomeador import renomear_colunas
 
 import logging
 import argparse
@@ -20,9 +22,9 @@ def menu_principal():
     print("\n--- Sistema Axioma_Py ---")
     print("1 - Consultar dados via API")
     print("2 - Carregar dados de arquivo local")
-    print("3 - Realizar scraping (a implementar)")
-    print("4 - Analisar dados (visualização e estatísticas)")
-    print("5 - Rodar testes de desenvolvimento")
+    print("3 - Realizar scraping (em desenvolvimento)")
+    print("4 - Analisar dados (comparações e estatísticas)")
+    print("5 - Teste Gerais (em desenvolvimento)")
     print("0 - Sair")
 
     opcao = input("Escolha uma opção: ")
@@ -60,28 +62,44 @@ def main():
         opcao = menu_principal()
         match opcao:
            
-            case '1':
-                isbn = input("Digite o ISBN para busca específica (ou deixe vazio para buscar por autor/título): ")
+            case '1':      
+                disponiveis_api = carregar_configuracoes_api()
+                listaAPI = retornar_nomesAPI()
 
-                if isbn.strip() == '':
-                    api_url = args.api_url if args.api_url else config['api_url']
-                    query = args.query if args.query else input(f"Digite o termo de busca (padrão: {config['default_query']}): ") or config['default_query']
-                    limit = args.limit if args.limit else config['default_limit']
+                print(f"Api`s Disponiveis: {listaAPI}")
+                nome_api = input("Digite o nome da API (ex: openlibrary, freetogame): ").strip().lower()
 
-                    logging.info(f"Buscando '{query}' na API: {api_url} com limite {limit}")
-                    api = LivrosAPI(api_url=api_url, query=query, limit=limit)
-                else:
-                    api_url = "https://openlibrary.org/api/books"
-                    logging.info(f"Buscando ISBN '{isbn}' na API: {api_url}")
-                    api = LivrosAPI(api_url=api_url, isbn=isbn)
-
-                dados = api.tratar_resposta()
-
-                if not dados:
-                    print("Nenhum dado encontrado.")
+                if nome_api not in disponiveis_api:
+                    print("API não configurada.")
                     continue
 
-                menu_operacoes_dados(dados)
+                api_config = disponiveis_api[nome_api]
+                api = APIDados(api_config)
+                api.solicitar_parametros()
+
+                df = api.consultar_dataframe()
+                if df is None:
+                    continue
+
+                print("\nColunas disponíveis no arquivo:")
+                print(df.columns.tolist())
+
+                colunas_selecionadas = input("Digite as colunas que deseja manter, separadas por vírgula: ").split(',')
+                colunas_selecionadas = [col.strip() for col in colunas_selecionadas]
+
+                try:
+                    df_formatado = df[colunas_selecionadas]
+
+                    novo_mapeamento = renomear_colunas(colunas_selecionadas)
+                    df_formatado = df_formatado.rename(columns=novo_mapeamento)
+
+                    print("\nDados formatados com sucesso!")
+
+                except Exception as e:
+                    print(f"Erro ao formatar os dados: {e}")
+                    continue
+
+                menu_operacoes_dados(df_formatado.to_dict(orient='records'))
 
             case '2':  
                 print("\n--- Carregar Arquivo Local ---")

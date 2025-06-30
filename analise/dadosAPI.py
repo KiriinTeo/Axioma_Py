@@ -1,4 +1,6 @@
+"""
 from coleta.api_Coleta import APIDados
+from analise.dadosFormatar import formatar_colunas
 from utils.filtros import filtrar_dados
 
 class LivrosAPI(APIDados):
@@ -19,73 +21,28 @@ class LivrosAPI(APIDados):
         super().__init__(api_url, params)
 
     def tratar_resposta(self):
-        dados = self.consultar()
+        if self.isbn:
+            df = self.consultar_dataframe()
+        else:
+            df = self.consultar_dataframe(chave_raiz='docs')
+
+        if df is None or df.empty:
+            print("Nenhum dado encontrado.")
+            return None
+
+        df_formatado = formatar_colunas(df)
 
         if self.isbn:
-            if not dados:
-                print("Nenhum livro encontrado para o ISBN informado.")
-                return None
+            print("Livro encontrado!")
+            return df_formatado.to_dict(orient='records')
 
-            try:
-                key = list(dados.keys())[0]
-                livro = dados[key]
+        filtro_autor = input("Filtrar por autor (opcional): ")
+        filtro_titulo = input("Filtrar por título (opcional): ")
 
-                if not isinstance(livro, dict):
-                    livro = {}
+        filtros = {'author_name': filtro_autor, 'title': filtro_titulo}
+        dados_filtrados = filtrar_dados(df_formatado.to_dict(orient='records'), filtros) if (filtro_autor or filtro_titulo) else df_formatado.to_dict(orient='records')
 
-                livro_formatado = {
-                    'title': livro.get('title', 'N/A'),
-                    'author_name': [autor['name'] for autor in livro.get('authors', [{'name': 'N/A'}])],
-                    'first_publish_year': livro.get('publish_date', 'N/A'),
-                    'isbn': [key.replace('ISBN:', '')],
-                    'publisher': [editora['name'] for editora in livro.get('publishers', [{'name': 'N/A'}])]
-                }
+        print("Resultados filtrados!")
+        return dados_filtrados
 
-                # Exibição
-                print(f"Título: {livro_formatado['title']}")
-                print(f"Autor: {', '.join(livro_formatado['author_name'])}")
-                print(f"Ano: {livro_formatado['first_publish_year']}")
-                print(f"ISBN: {', '.join(livro_formatado['isbn'])}")
-                print(f"Editora: {', '.join(livro_formatado['publisher'])}")
-                print("-" * 40)
-
-                return [livro_formatado]
-
-            except Exception as e:
-                print(f"Erro ao processar os dados retornados: {e}")
-                return None
-
-        else:
-            docs = dados.get('docs', [])
-            if not docs:
-                print("Nenhum livro encontrado.")
-                return None
-
-            filtro_autor = input("Filtrar por autor (opcional): ")
-            filtro_titulo = input("Filtrar por título (opcional): ")
-
-            filtros = {'author_name': filtro_autor, 'title': filtro_titulo}
-            dados_filtrados = filtrar_dados(docs, filtros) if (filtro_autor or filtro_titulo) else docs
-
-            for livro in dados_filtrados:
-                print(f"Título: {livro.get('title', 'N/A')}")
-                autores = livro.get('author_name', [])
-                print(f"Autor: {', '.join(autores)}")
-                print(f"Ano: {livro.get('first_publish_year', 'N/A')}")
-                print(f"ISBN: {', '.join(livro.get('isbn', ['N/A']))}")
-                print("-" * 40)
-
-            return dados_filtrados if dados_filtrados else None
-        
-class JogosAPI(APIDados):
-    def __init__(self, api_url, query=None, limit=None):
-        params = {}
-        if query:
-            params['search'] = query
-        if limit:
-            params['limit'] = limit
-        
-        super(). __init__(api_url,  params)
-
-    
-
+"""
