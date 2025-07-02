@@ -1,0 +1,44 @@
+[
+  {
+    "funcionario": "Alice",
+    "horas_trabalhadas": 160,
+    "horas_meta": 160,
+    "projetos_concluidos": 5
+  },
+  {
+    "funcionario": "Bruno",
+    "horas_trabalhadas": 145,
+    "horas_meta": 160,
+    "projetos_concluidos": 4
+  },
+  {
+    "funcionario": "Carlos",
+    "horas_trabalhadas": 175,
+    "horas_meta": 160,
+    "projetos_concluidos": 6
+  },
+  {
+    "funcionario": "Diana",
+    "horas_trabalhadas": 125,
+    "horas_meta": 160,
+    "projetos_concluidos": 3
+  },
+  {
+    "funcionario": "Eduardo",
+    "horas_trabalhadas": 190,
+    "horas_meta": 160,
+    "projetos_concluidos": 7
+  },
+  {
+    "funcionario": "Fernanda",
+    "horas_trabalhadas": 100,
+    "horas_meta": 160,
+    "projetos_concluidos": 2
+  },
+  {
+    "funcionario": "Gabriel",
+    "horas_trabalhadas": 130,
+    "horas_meta": 160,
+    "projetos_concluidos": 4
+  }
+]

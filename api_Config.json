@@ -8,14 +8,14 @@
   },
   "freetogame": {
     "url": "https://www.freetogame.com/api/games",
-    "params": [],
+    "params": ["limit"],
     "requires_key": false,
     "default_response_path": "",
     "default_fields": ["title", "genre", "platform", "release_date"]
   },
   "tmdb": {
     "url": "https://api.themoviedb.org/3/search/movie",
-    "params": ["api_key", "query", "page", "year"],
+    "params": ["api_key", "query", "page", "year", "limit"],
     "requires_key": true,
     "default_response_path": "results",
     "default_fields": ["title", "release_date", "overview", "vote_average"]

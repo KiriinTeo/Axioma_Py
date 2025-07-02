@@ -1,0 +1,863 @@
+[
+    {
+        "Nome": "Administração ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 12001
+    },
+    {
+        "Nome": "Administração ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 12001
+    },
+    {
+        "Nome": "Administração",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 24001
+    },
+    {
+        "Nome": "Agronomia  ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 24002
+    },
+    {
+        "Nome": "Antropologia ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 5001
+    },
+    {
+        "Nome": "Aquacultura ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 21001
+    },
+    {
+        "Nome": "Arqueologia",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 5014
+    },
+    {
+        "Nome": "Arquitetura e Urbanismo ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 9001
+    },
+    {
+        "Nome": "Arquitetura e Urbanismo ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 9001
+    },
+    {
+        "Nome": "Arquivologia ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 13001
+    },
+    {
+        "Nome": "Artes Visuais ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 7001
+    },
+    {
+        "Nome": "Artes Visuais ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Licenciatura",
+        "Código": 7001
+    },
+    {
+        "Nome": "Biblioteconomia ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 13002
+    },
+    {
+        "Nome": "Biblioteconomia ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 13002
+    },
+    {
+        "Nome": "Biomedicina ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 18001
+    },
+    {
+        "Nome": "Ciência da Computação ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 2001
+    },
+    {
+        "Nome": "Ciência de Dados",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 2011
+    },
+    {
+        "Nome": "Ciências Atuariais ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 2002
+    },
+    {
+        "Nome": "Ciências Biológicas ",
+        "Modalidade": "A distância",
+        "Turno": "Não Se Aplica",
+        "Professor": "Licenciatura",
+        "Código": 3001
+    },
+    {
+        "Nome": "Ciências Biológicas ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 3001
+    },
+    {
+        "Nome": "Ciências Biológicas ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Licenciatura",
+        "Código": 3001
+    },
+    {
+        "Nome": "Ciências Biológicas ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Licenciatura",
+        "Código": 3001
+    },
+    {
+        "Nome": "Ciências Contábeis ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 12002
+    },
+    {
+        "Nome": "Ciências do Estado ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 15001
+    },
+    {
+        "Nome": "Ciências Econômicas ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 12003
+    },
+    {
+        "Nome": "Ciências Sociais ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 5002
+    },
+    {
+        "Nome": "Ciências Sociais ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Licenciatura",
+        "Código": 5002
+    },
+    {
+        "Nome": "Ciências Socioambientais ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 5003
+    },
+    {
+        "Nome": "Cinema de Animação e Artes Digitais ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 7002
+    },
+    {
+        "Nome": "Comunicação Social ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 5006
+    },
+    {
+        "Nome": "Comunicação Social ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 5006
+    },
+    {
+        "Nome": "Conservação e Restauração de Bens Culturais Móveis ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 7003
+    },
+    {
+        "Nome": "Controladoria e Finanças ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 12004
+    },
+    {
+        "Nome": "Curso Superior de Tecnologia em Radiologia ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Tecnólogo",
+        "Código": 16001
+    },
+    {
+        "Nome": "Dança ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Licenciatura",
+        "Código": 7004
+    },
+    {
+        "Nome": "Design ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 9002
+    },
+    {
+        "Nome": "Design de Moda ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 7005
+    },
+    {
+        "Nome": "Direito ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 15002
+    },
+    {
+        "Nome": "Direito ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 15002
+    },
+    {
+        "Nome": "Educação Física ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 20001
+    },
+    {
+        "Nome": "Educação Física ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Licenciatura",
+        "Código": 20001
+    },
+    {
+        "Nome": "Educação Física ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 20001
+    },
+    {
+        "Nome": "Enfermagem ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 17001
+    },
+    {
+        "Nome": "Engenharia Aeroespacial ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 10003
+    },
+    {
+        "Nome": "Engenharia Agrícola e Ambiental ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 24004
+    },
+    {
+        "Nome": "Engenharia Ambiental ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 10004
+    },
+    {
+        "Nome": "Engenharia Civil ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 10005
+    },
+    {
+        "Nome": "Engenharia de Alimentos ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 24003
+    },
+    {
+        "Nome": "Engenharia de Controle e Automação ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 10001
+    },
+    {
+        "Nome": "Engenharia de Controle e Automação ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 10001
+    },
+    {
+        "Nome": "Engenharia de Minas ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 10006
+    },
+    {
+        "Nome": "Engenharia de Produção ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 10007
+    },
+    {
+        "Nome": "Engenharia de Sistemas ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 10008
+    },
+    {
+        "Nome": "Engenharia Elétrica ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 10009
+    },
+    {
+        "Nome": "Engenharia Florestal ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 24005
+    },
+    {
+        "Nome": "Engenharia Mecânica ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 10010
+    },
+    {
+        "Nome": "Engenharia Mecânica ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 10010
+    },
+    {
+        "Nome": "Engenharia Metalúrgica ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 10011
+    },
+    {
+        "Nome": "Engenharia Química ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 10012
+    },
+    {
+        "Nome": "Estatística ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 2003
+    },
+    {
+        "Nome": "Farmácia ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 18002
+    },
+    {
+        "Nome": "Farmácia ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 18002
+    },
+    {
+        "Nome": "Filosofia ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 5007
+    },
+    {
+        "Nome": "Filosofia ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Licenciatura",
+        "Código": 5007
+    },
+    {
+        "Nome": "Filosofia ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 5007
+    },
+    {
+        "Nome": "Filosofia ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Licenciatura",
+        "Código": 5007
+    },
+    {
+        "Nome": "Física ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 2004
+    },
+    {
+        "Nome": "Física ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Licenciatura",
+        "Código": 2004
+    },
+    {
+        "Nome": "Física ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 2004
+    },
+    {
+        "Nome": "Física ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Licenciatura",
+        "Código": 2004
+    },
+    {
+        "Nome": "Fisioterapia ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 20002
+    },
+    {
+        "Nome": "Fonoaudiologia ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 16002
+    },
+    {
+        "Nome": "Formação Intercultural para Educadores Indígenas ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Licenciatura",
+        "Código": 14002
+    },
+    {
+        "Nome": "Geografia ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 4001
+    },
+    {
+        "Nome": "Geografia ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Licenciatura",
+        "Código": 4001
+    },
+    {
+        "Nome": "Geografia ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Licenciatura",
+        "Código": 4001
+    },
+    {
+        "Nome": "Geologia ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 4002
+    },
+    {
+        "Nome": "Gestão de Serviços de Saúde ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 17002
+    },
+    {
+        "Nome": "Gestão Pública ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 5008
+    },
+    {
+        "Nome": "História ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 5009
+    },
+    {
+        "Nome": "História ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Licenciatura",
+        "Código": 5009
+    },
+    {
+        "Nome": "História ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Licenciatura",
+        "Código": 5009
+    },
+    {
+        "Nome": "Jornalismo ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 5011
+    },
+    {
+        "Nome": "Jornalismo ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 5011
+    },
+    {
+        "Nome": "Letras ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 6001
+    },
+    {
+        "Nome": "Letras ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Licenciatura",
+        "Código": 6001
+    },
+    {
+        "Nome": "Letras ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 6001
+    },
+    {
+        "Nome": "Letras ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Licenciatura",
+        "Código": 6001
+    },
+    {
+        "Nome": "Letras Libras ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Licenciatura",
+        "Código": 6002
+    },
+    {
+        "Nome": "Licenciatura em Educação do Campo ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Licenciatura",
+        "Código": 14003
+    },
+    {
+        "Nome": "Matemática ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 2005
+    },
+    {
+        "Nome": "Matemática ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Licenciatura",
+        "Código": 2005
+    },
+    {
+        "Nome": "Matemática ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Licenciatura",
+        "Código": 2005
+    },
+    {
+        "Nome": "Matemática Computacional ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 2006
+    },
+    {
+        "Nome": "Medicina ",
+        "Modalidade": "Presencial",
+        "Turno": "Integral",
+        "Professor": "Bacharelado",
+        "Código": 16003
+    },
+    {
+        "Nome": "Medicina Veterinária ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 21002
+    },
+    {
+        "Nome": "Museologia ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 13003
+    },
+    {
+        "Nome": "Música ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 8001
+    },
+    {
+        "Nome": "Música ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 8001
+    },
+    {
+        "Nome": "Música ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Licenciatura",
+        "Código": 8001
+    },
+    {
+        "Nome": "Nutrição ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 17003
+    },
+    {
+        "Nome": "Odontologia ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 19001
+    },
+    {
+        "Nome": "Pedagogia ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Licenciatura",
+        "Código": 14006
+    },
+    {
+        "Nome": "Pedagogia ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Licenciatura",
+        "Código": 14006
+    },
+    {
+        "Nome": "Psicologia ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 5010
+    },
+    {
+        "Nome": "Psicologia ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Psicólogo",
+        "Código": 5010
+    },
+    {
+        "Nome": "Publicidade e Propaganda ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 5013
+    },
+    {
+        "Nome": "Química ",
+        "Modalidade": "A distância",
+        "Turno": "Não Se Aplica",
+        "Professor": "Licenciatura",
+        "Código": 2007
+    },
+    {
+        "Nome": "Química ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 2007
+    },
+    {
+        "Nome": "Química ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Licenciatura",
+        "Código": 2007
+    },
+    {
+        "Nome": "Química ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 2007
+    },
+    {
+        "Nome": "Química ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Licenciatura",
+        "Código": 2007
+    },
+    {
+        "Nome": "Química Tecnológica ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 2008
+    },
+    {
+        "Nome": "Relações Econômicas Internacionais ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 12005
+    },
+    {
+        "Nome": "Relações Públicas ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 5012
+    },
+    {
+        "Nome": "Sistemas de Informação ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 2009
+    },
+    {
+        "Nome": "Teatro ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 7006
+    },
+    {
+        "Nome": "Teatro ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Licenciatura",
+        "Código": 7006
+    },
+    {
+        "Nome": "Terapia Ocupacional ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 20003
+    },
+    {
+        "Nome": "Tronco Comum em Antropologia e Arqueologia ",
+        "Modalidade": "Presencial",
+        "Turno": "Noturno",
+        "Professor": "Bacharelado",
+        "Código": 5015
+    },
+    {
+        "Nome": "Tronco Comum em Metalurgia e Materiais ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 10014
+    },
+    {
+        "Nome": "Turismo ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 4003
+    },
+    {
+        "Nome": "Zootecnia ",
+        "Modalidade": "Presencial",
+        "Turno": "Diurno",
+        "Professor": "Bacharelado",
+        "Código": 24006
+    }
+]

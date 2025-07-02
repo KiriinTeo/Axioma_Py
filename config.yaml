@@ -1,5 +1,3 @@
-#Configuração Básica - descentralização de api`s
-
 api_url: "https://openlibrary.org/search.json"
 default_query: "python"
 default_limit: 50

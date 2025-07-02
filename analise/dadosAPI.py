@@ -46,3 +46,5 @@ class LivrosAPI(APIDados):
         return dados_filtrados
 
 """
+
+#Arquivo para tratativas específicas de API`s (sem uso no momento)

@@ -5,6 +5,8 @@ from coleta.local_Coleta import carregarArquivoLoc
 from utils.io import salvar_dados
 from utils.exibicao import exibir_dados
 from utils.leitorAPIconfig import carregar_configuracoes_api, retornar_nomesAPI
+from visualizacao.dadosGraficos import VisualizadorDados
+from utils.carregarData import carregarSalvos, listarArquivos
 
 import logging
 import argparse
@@ -109,7 +111,51 @@ def main():
 
             case '4':
                 print("\n--- Análise de Dados ---")
+                usar_salvos = input("Usar conjunto de dados salvo em 'data/'? (s/n): ").strip().lower()
 
+                if usar_salvos == 's':
+                    df_analise = carregarSalvos()
+                    if df_analise is None:
+                        continue
+
+                else:
+                    fonte = input("1) API\n2) Arquivo local\nEscolha a fonte dos dados: ").strip()
+                    if fonte == '1':
+                        df_analise = df  
+                    elif fonte == '2':
+                        df_analise = carregarArquivoLoc()
+                        if df_analise is None:
+                            continue
+                        else:
+                            print("Opção inválida.")
+                            continue
+
+                while True:
+                    print("\n--- Menu de Análise ---")
+                    print("1 - Estatísticas Descritivas (ideal para visão geral)")
+                    print("2 - Histograma (ideal para distribuição numérica)")
+                    print("3 - Gráfico de Barras (ideal para ver a frequência de categorias)")
+                    print("4 - Dispersão (ideal para ver a relação entre duas variáveis numéricas)")
+                    print("0 - Voltar")
+                    opc = input("Escolha uma opção: ").strip()
+
+                    if opc == '1':
+                        VisualizadorDados.estatisticas_descritivas(df_analise)
+                    elif opc == '2':
+                        col = input("Informe uma coluna numérica para histograma: ").strip()
+                        VisualizadorDados.plot_histograma(df_analise, col)
+                    elif opc == '3':
+                        col = input("Informe uma coluna categórica para barras: ").strip()
+                        topn = int(input("Top N categorias (padrão 10): ").strip() or 10)
+                        VisualizadorDados.plot_barras(df_analise, col, top_n=topn)
+                    elif opc == '4':
+                        x = input("Informe a coluna X (numérica): ").strip()
+                        y = input("Informe a coluna Y (numérica): ").strip()
+                        VisualizadorDados.plot_scatter(df_analise, x, y)
+                    elif opc == '0':
+                        break
+                    else:
+                        print("Opção inválida.")
             case '5':
                 print("\n--- Ambiente de Testes ---")
 
