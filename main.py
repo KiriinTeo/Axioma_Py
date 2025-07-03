@@ -6,7 +6,8 @@ from utils.io import salvar_dados
 from utils.exibicao import exibir_dados
 from utils.leitorAPIconfig import carregar_configuracoes_api, retornar_nomesAPI
 from visualizacao.dadosGraficos import VisualizadorDados
-from utils.carregarData import carregarSalvos, listarArquivos
+from utils.carregarData import carregarSalvos
+from testes.exDesempenho import calcular_desempenho
 
 import logging
 import argparse
@@ -118,17 +119,52 @@ def main():
                     if df_analise is None:
                         continue
 
-                else:
+                elif usar_salvos == 'n':
                     fonte = input("1) API\n2) Arquivo local\nEscolha a fonte dos dados: ").strip()
                     if fonte == '1':
-                        df_analise = df  
+                        disponiveis_api = carregar_configuracoes_api()
+                        listaAPI = retornar_nomesAPI()
+
+                        print(f"Api`s Disponiveis: {listaAPI}")
+                        nome_api = input("Digite o nome da API (ex: openlibrary, freetogame): ").strip().lower()
+
+                        if nome_api not in disponiveis_api:
+                            print("API não configurada.")
+                            continue
+
+                        api_config = disponiveis_api[nome_api]
+                        api = APIDados(api_config)
+                        api.solicitar_parametros()
+
+                        df = api.consultar_dataframe()
+                        if df is None:
+                            continue
+
+                        try:
+                            df_analise = formatar_colunas(df)
+                            if df_analise is None:
+                                print("Falha ao formatar os dados.")
+                                continue
+
+                            print("\nDados formatados com sucesso!")
+
+                        except Exception as e:
+                            print(f"Erro ao formatar os dados: {e}")
+                            continue
+
                     elif fonte == '2':
-                        df_analise = carregarArquivoLoc()
+                        df_local = carregarArquivoLoc()
+                        if df_local is None:
+                            continue
+
+                        df_analise = formatar_colunas(df_local)
                         if df_analise is None:
                             continue
                         else:
                             print("Opção inválida.")
                             continue
+                else: 
+                    print("Opção Inválida, tente novamente")
 
                 while True:
                     print("\n--- Menu de Análise ---")
@@ -136,24 +172,57 @@ def main():
                     print("2 - Histograma (ideal para distribuição numérica)")
                     print("3 - Gráfico de Barras (ideal para ver a frequência de categorias)")
                     print("4 - Dispersão (ideal para ver a relação entre duas variáveis numéricas)")
+                    print("5 - Caso de Usos do Sistema (exemplo: análise de desempenho no trabalho)")
+                    print("6 - Gráfico de Linha (ideal para evolução temporal)")
+                    print("7 - Gráfico de Pizza (ideal para proporção percentual)")
+                    print("8 - Boxplot (ideal para detectar outliers)")
+                    print("9 - Ir para menu de operações")
                     print("0 - Voltar")
                     opc = input("Escolha uma opção: ").strip()
 
                     if opc == '1':
                         VisualizadorDados.estatisticas_descritivas(df_analise)
+
                     elif opc == '2':
                         col = input("Informe uma coluna numérica para histograma: ").strip()
                         VisualizadorDados.plot_histograma(df_analise, col)
+
                     elif opc == '3':
                         col = input("Informe uma coluna categórica para barras: ").strip()
                         topn = int(input("Top N categorias (padrão 10): ").strip() or 10)
                         VisualizadorDados.plot_barras(df_analise, col, top_n=topn)
+
                     elif opc == '4':
                         x = input("Informe a coluna X (numérica): ").strip()
                         y = input("Informe a coluna Y (numérica): ").strip()
                         VisualizadorDados.plot_scatter(df_analise, x, y)
+
+                    elif opc == '5':
+                        df_desempenho = calcular_desempenho(df_analise)
+                        if df_desempenho is not None:
+                            print("\n--- Resultado da Análise de Desempenho ---")
+                            print(df_desempenho[['funcionario', 'horas_trabalhadas', 'horas_meta', 'Desempenho']])
+                            VisualizadorDados.plot_barras(df_desempenho, 'Desempenho')
+
+                    elif opc == '6':
+                        x = input("Informe a coluna X (ex: datas, períodos): ").strip()
+                        y = input("Informe a coluna Y (numérica): ").strip()
+                        VisualizadorDados.plot_linha(df_analise, x, y)
+
+                    elif opc == '7':
+                        col = input("Informe uma coluna categórica para o gráfico de pizza: ").strip()
+                        VisualizadorDados.plot_pizza(df_analise, col)
+
+                    elif opc == '8':
+                        col = input("Informe uma coluna numérica para o boxplot: ").strip()
+                        VisualizadorDados.plot_boxplot(df_analise, col)
+
+                    elif opc == '9':
+                        menu_operacoes_dados(df_analise.to_dict(orient='records'))
+
                     elif opc == '0':
                         break
+
                     else:
                         print("Opção inválida.")
             case '5':

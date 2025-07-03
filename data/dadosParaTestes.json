@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "first_name": "Jose",
+    "last_name": "Lopez",
+    "age": 25,
+    "gender": "male",
+    "job_title": "Project Manager",
+    "years_of_experience": 1,
+    "salary": 8500,
+    "department": "Product"
+  },
+  {
+    "id": 2,
+    "first_name": "Diane",
+    "last_name": "Carter",
+    "age": 30,
+    "gender": "female",
+    "job_title": "Business Analyst",
+    "years_of_experience": 5,
+    "salary": 7000,
+    "department": "Marketing"
+  },
+  {
+    "id": 3,
+    "first_name": "Shawn",
+    "last_name": "Foster",
+    "age": 45,
+    "gender": "male",
+    "job_title": "Software Engineer",
+    "years_of_experience": 12,
+    "salary": 17000,
+    "department": "Product"
+  },
+  {
+    "id": 4,
+    "first_name": "Brenda",
+    "last_name": "Fisher",
+    "age": 28,
+    "gender": "female",
+    "job_title": "Data Analyst",
+    "years_of_experience": 3,
+    "salary": 10000,
+    "department": "Product"
+  },
+  {
+    "id": 5,
+    "first_name": "Sean",
+    "last_name": "Hunter",
+    "age": 35,
+    "gender": "male",
+    "job_title": "Sales Manager",
+    "years_of_experience": 8,
+    "salary": 14500,
+    "department": "Sales"
+  },
+  {
+    "id": 6,
+    "first_name": "Laura",
+    "last_name": "Wilson",
+    "age": 27,
+    "gender": "female",
+    "job_title": "Project Manager",
+    "years_of_experience": 4,
+    "salary": 9000,
+    "department": "Product"
+  },
+  {
+    "id": 7,
+    "first_name": "Peter",
+    "last_name": "Harris",
+    "age": 32,
+    "gender": "male",
+    "job_title": "UX Designer",
+    "years_of_experience": 6,
+    "salary": 12000,
+    "department": "Design"
+  },
+  {
+    "id": 8,
+    "first_name": "Jessica",
+    "last_name": "Lee",
+    "age": 29,
+    "gender": "female",
+    "job_title": "HR Manager",
+    "years_of_experience": 7,
+    "salary": 11000,
+    "department": "HR"
+  },
+  {
+    "id": 9,
+    "first_name": "Mark",
+    "last_name": "Brown",
+    "age": 40,
+    "gender": "male",
+    "job_title": "IT Lead",
+    "years_of_experience": 15,
+    "salary": 20000,
+    "department": "IT"
+  },
+  {
+    "id": 10,
+    "first_name": "Emma",
+    "last_name": "White",
+    "age": 26,
+    "gender": "female",
+    "job_title": "Content Writer",
+    "years_of_experience": 2,
+    "salary": 8000,
+    "department": "Marketing"
+  },
+  {
+    "id": 11,
+    "first_name": "Alex",
+    "last_name": "Johnson",
+    "age": 33,
+    "gender": "male",
+    "job_title": "Database Admin",
+    "years_of_experience": 9,
+    "salary": 13000,
+    "department": "IT"
+  },
+  {
+    "id": 12,
+    "first_name": "Olivia",
+    "last_name": "Davis",
+    "age": 31,
+    "gender": "female",
+    "job_title": "UI/UX Designer",
+    "years_of_experience": 5,
+    "salary": 11500,
+    "department": "Design"
+  },
+  {
+    "id": 13,
+    "first_name": "Harish",
+    "last_name": "Gowda",
+    "age": 32,
+    "gender": "male",
+    "job_title": "Developer",
+    "years_of_experience": 7,
+    "salary": 12500,
+    "department": "Product"
+  },
+  {
+    "id": 14,
+    "first_name": "Jane",
+    "last_name": "Perry",
+    "age": 29,
+    "gender": "female",
+    "job_title": "Developer",
+    "years_of_experience": 4,
+    "salary": 11800,
+    "department": "Product"
+  },
+  {
+    "id": 15,
+    "first_name": "Menaka",
+    "last_name": "KY",
+    "age": 25,
+    "gender": "female",
+    "job_title": "Database Admin",
+    "years_of_experience": 3,
+    "salary": 12000,
+    "department": "IT"
+  },
+  {
+    "id": 16,
+    "first_name": "Shanvi",
+    "last_name": "Harish",
+    "age": 23,
+    "gender": "female",
+    "job_title": "UI/UX Designer",
+    "years_of_experience": 2,
+    "salary": 9500,
+    "department": "Design"
+  },
+  {
+    "id": 17,
+    "first_name": "Tim",
+    "last_name": "David",
+    "age": 35,
+    "gender": "male",
+    "job_title": "Technical Lead",
+    "years_of_experience": 10,
+    "salary": 16000,
+    "department": "IT"
+  },
+  {
+    "id": 18,
+    "first_name": "Alice",
+    "last_name": "Morris",
+    "age": 27,
+    "gender": "female",
+    "job_title": "Data Analyst",
+    "years_of_experience": 3,
+    "salary": 10500,
+    "department": "Product"
+  },
+  {
+    "id": 19,
+    "first_name": "Carlos",
+    "last_name": "Reyes",
+    "age": 41,
+    "gender": "male",
+    "job_title": "Software Engineer",
+    "years_of_experience": 13,
+    "salary": 18000,
+    "department": "Product"
+  },
+  {
+    "id": 20,
+    "first_name": "Fernanda",
+    "last_name": "Silva",
+    "age": 28,
+    "gender": "female",
+    "job_title": "Marketing Manager",
+    "years_of_experience": 6,
+    "salary": 11500,
+    "department": "Marketing"
+  }
+]
