@@ -8,7 +8,7 @@
   },
   "freetogame": {
     "url": "https://www.freetogame.com/api/games",
-    "params": ["limit"],
+    "params": [],
     "requires_key": false,
     "default_response_path": "",
     "default_fields": ["title", "genre", "platform", "release_date"]

@@ -1,50 +1,35 @@
-"""
+from utils.leitorAPIconfig import carregar_configuracoes_api, retornar_nomesAPI
 from coleta.api_Coleta import APIDados
 from analise.dadosFormatar import formatar_colunas
-from utils.filtros import filtrar_dados
 
-class LivrosAPI(APIDados):
-    def __init__(self, api_url, query=None, limit=None, isbn=None):
-        self.isbn = isbn
-        params = {}
+def carregarAPI(): 
+    disponiveis_api = carregar_configuracoes_api()
+    listaAPI = retornar_nomesAPI()
 
-        if isbn:
-            params['bibkeys'] = f"ISBN:{isbn}"
-            params['format'] = 'json'
-            params['jscmd'] = 'data'
-        else:
-            if query:
-                params['title'] = query
-            if limit:
-                params['limit'] = limit
+    print(f"Api`s Disponiveis: {listaAPI}")
+    nome_api = input("Digite o nome da API (ex: openlibrary, freetogame): ").strip().lower()
 
-        super().__init__(api_url, params)
+    if nome_api not in disponiveis_api:
+        print("API não configurada.")
+        return
 
-    def tratar_resposta(self):
-        if self.isbn:
-            df = self.consultar_dataframe()
-        else:
-            df = self.consultar_dataframe(chave_raiz='docs')
+    api_config = disponiveis_api[nome_api]
+    api = APIDados(api_config)
+    api.solicitar_parametros()
 
-        if df is None or df.empty:
-            print("Nenhum dado encontrado.")
-            return None
+    df = api.consultar_dataframe()
+    if df is None:
+        return
 
+    try:
         df_formatado = formatar_colunas(df)
+        if df_formatado is None:
+            print("Falha ao formatar os dados.")
+            return
+        
+        print("\nDados formatados com sucesso!")
+        return df_formatado
 
-        if self.isbn:
-            print("Livro encontrado!")
-            return df_formatado.to_dict(orient='records')
-
-        filtro_autor = input("Filtrar por autor (opcional): ")
-        filtro_titulo = input("Filtrar por título (opcional): ")
-
-        filtros = {'author_name': filtro_autor, 'title': filtro_titulo}
-        dados_filtrados = filtrar_dados(df_formatado.to_dict(orient='records'), filtros) if (filtro_autor or filtro_titulo) else df_formatado.to_dict(orient='records')
-
-        print("Resultados filtrados!")
-        return dados_filtrados
-
-"""
-
-#Arquivo para tratativas específicas de API`s (sem uso no momento)
+    except Exception as e:
+        print(f"Erro ao formatar os dados: {e}")
+        return

@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-sns.set_theme()
+sns.set_theme(style="whitegrid")
 
 class VisualizadorDados:
     @staticmethod
@@ -16,7 +16,7 @@ class VisualizadorDados:
               rowLabels=descricao.index,
               loc='center',
               )
-        tabela.set_fontsize(20)
+        tabela.set_fontsize(13)
         plt.axis('off')
         plt.title('Estatísticas Descritivas')
         plt.show()
@@ -42,7 +42,7 @@ class VisualizadorDados:
         contagens = df[coluna].value_counts().nlargest(top_n)
         plt.figure()
         sns.barplot(x=contagens.values, y=contagens.index)
-        plt.title(f"Top {top_n} categorias em {coluna}")
+        plt.title(f"Maiores {top_n} categorias em {coluna}")
         plt.xlabel("Contagem")
         plt.ylabel(coluna)
         plt.gca().xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{int(x)}'))
@@ -77,7 +77,7 @@ class VisualizadorDados:
             print(f"Coluna '{coluna}' não encontrada.")
             return
         plt.figure()
-        sns.boxplot(y=df[coluna].dropna())
+        sns.boxplot(y=df[coluna].dropna(), orientation='vertical')
         plt.title(f"Boxplot de {coluna}")
         plt.ylabel(coluna)
         plt.show()
