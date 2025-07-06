@@ -2,9 +2,9 @@ name: Python Test Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches: [ '*' ]
   pull_request:
-    branches: [ main ]
+    branches: [ '*' ]
 
 jobs:
   test:
@@ -17,7 +17,7 @@ jobs:
     - name: Configurar Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.13.1'
+        python-version: '3.11'
 
     - name: Instalar Dependências
       run: |
