@@ -3,6 +3,4 @@ seaborn
 matplotlib
 pytest
 requests
-logging
-argparse
-tkinter
+
