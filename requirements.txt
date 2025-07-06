@@ -1,0 +1,12 @@
+pandas
+seaborn
+matplotlib
+pytest
+requests
+yaml
+json
+logging
+argparse
+tkinter
+os
+sys
