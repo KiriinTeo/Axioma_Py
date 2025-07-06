@@ -3,10 +3,8 @@ import argparse
 
 from analise.dadosAPI import carregarAPI
 from analise.dadosFormatar import formatar_colunas
-from coleta.api_Coleta import APIDados
 from coleta.local_Coleta import carregarArquivoLoc
 from testes.exDesempenho import calcular_desempenho
-
 from utils.carregarConfig import carregar_config
 from utils.carregarData import carregarSalvos
 from utils.io import salvar_dados
@@ -15,7 +13,6 @@ from visualizacao.dadosGraficos import VisualizadorDados
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Sistema Axioma_Py")
-    parser.add_argument("--isbn", type=str, help="ISBN para busca específica", default=None)
     parser.add_argument("--api_url", type=str, help="URL da API", default=None)
     parser.add_argument("--query", type=str, help="Termo de busca (padrão)", default=None)
     parser.add_argument("--limit", type=int, help="Número de resultados", default=None)
@@ -26,7 +23,6 @@ def menu_principal():
     print("1 - Consultar dados via API")
     print("2 - Carregar dados de arquivo local")
     print("3 - Analisar dados (comparações e estatísticas)")
-    print("4 - Ambiente de Testes (em desenvolvimento)")
     print("0 - Sair")
     return input("Escolha uma opção: ")
 
@@ -52,13 +48,13 @@ def menu_analise(df_analise):
     while True:
         print("\n--- Menu de Análise ---")
         print("1 - Estatísticas Descritivas")
-        print("2 - Histograma")
-        print("3 - Gráfico de Barras")
-        print("4 - Dispersão")
+        print("2 - Histograma (Ideal para visualizar a distribuição de uma variável numérica)")
+        print("3 - Gráfico de Barras (Ideal para comparar categorias)")
+        print("4 - Dispersão (Ideal para analisar correlações entre variáveis numéricas)")
         print("5 - Análise de Desempenho (exemplo prático)")
-        print("6 - Gráfico de Linha")
-        print("7 - Gráfico de Pizza")
-        print("8 - Boxplot")
+        print("6 - Gráfico de Linha (Ideal para visualizar tendências ao longo do tempo)")
+        print("7 - Gráfico de Pizza (Ideal para visualizar proporções de categorias)")
+        print("8 - Boxplot (Ideal para visualizar a distribuição e outliers de uma variável numérica)")
         print("9 - Operações com Dados (Salvar/Visualizar)")
         print("0 - Voltar")
         opc = input("Escolha uma opção: ").strip()
@@ -67,17 +63,20 @@ def menu_analise(df_analise):
             VisualizadorDados.estatisticas_descritivas(df_analise)
 
         elif opc == '2':
+            print("\nDica: O histograma é ideal para variáveis como preços, idades, salários, etc.")
             col = input("Informe uma coluna numérica para histograma: ").strip()
             VisualizadorDados.plot_histograma(df_analise, col)
 
         elif opc == '3':
+            print("\nDica: O gráfico de barras é ótimo para comparar categorias como produtos, setores, cidades, etc.")
             col = input("Informe uma coluna categórica para barras: ").strip()
             topn = int(input("Top N categorias (padrão 10): ").strip() or 10)
             VisualizadorDados.plot_barras(df_analise, col, top_n=topn)
 
         elif opc == '4':
-            x = input("Informe a coluna X (numérica): ").strip()
-            y = input("Informe a coluna Y (numérica): ").strip()
+            print("\nDica: O gráfico de dispersão é excelente para analisar correlações, como altura vs peso, vendas vs lucro, etc.")
+            x = input("Informe a coluna X (numérica) (ex: Altura, Vendas): ").strip()
+            y = input("Informe a coluna Y (numérica) (ex: Peso, Lucro): ").strip()
             VisualizadorDados.plot_scatter(df_analise, x, y)
 
         elif opc == '5':
@@ -88,15 +87,18 @@ def menu_analise(df_analise):
                 VisualizadorDados.plot_barras(df_desempenho, 'Desempenho')
 
         elif opc == '6':
-            x = input("Informe a coluna X (ex: datas, períodos): ").strip()
-            y = input("Informe a coluna Y (numérica): ").strip()
+            print("\nDica: O gráfico de linha é ideal para acompanhar tendências ao longo do tempo. Ex: Data x Vendas.")
+            x = input("Informe a coluna X (ex: Data, Tempo, Período): ").strip()
+            y = input("Informe a coluna Y (numérica) (ex: Vendas, Temperatura): ").strip()
             VisualizadorDados.plot_linha(df_analise, x, y)
 
         elif opc == '7':
+            print("\nDica: O gráfico de pizza é bom para visualizar proporções de categorias como tipos de produtos, regiões, etc.")
             col = input("Informe uma coluna categórica para o gráfico de pizza: ").strip()
             VisualizadorDados.plot_pizza(df_analise, col)
 
         elif opc == '8':
+            print("\nDica: O boxplot é útil para visualizar a dispersão, mediana e possíveis outliers. Ex: Salário, Idade, Preço.")
             col = input("Informe uma coluna numérica para o boxplot: ").strip()
             VisualizadorDados.plot_boxplot(df_analise, col)
 
@@ -108,6 +110,7 @@ def menu_analise(df_analise):
 
         else:
             print("Opção inválida.")
+
 
 def fonteAnalise():
     usar_salvos = input("Usar conjunto de dados salvo em 'data/'? (s/n): ").strip().lower()
@@ -157,9 +160,6 @@ def main():
                 df_analise = fonteAnalise()
                 if df_analise is not None:
                     menu_analise(df_analise)
-
-            case '4':
-                print("\n--- Ambiente de Testes --- (em desenvolvimento)")
 
             case '0':
                 print("\nEncerrando o sistema. Obrigado por utilizar o Axioma_Py.")
