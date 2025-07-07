@@ -33,9 +33,9 @@ O sistema permite:
 
 **Arquivos Importantes**
 
-api_Config.json     | Configuração das APIs utilizadas
-requirements.txt    | Bibliotecas necessárias
-main.py             | Execução principal do sistema
+| api_Config.json     | Configuração das APIs utilizadas
+| requirements.txt    | Bibliotecas necessárias
+| main.py             | Execução principal do sistema
 
 
 ### ✅ Como Usar o Sistema
