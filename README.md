@@ -1,141 +1,120 @@
-Axioma\_Py
+## **AxiomaPy**
 
-Axioma\_Py é um sistema modular para \*\*coleta, processamento, análise e visualização de dados\*\*. Ele oferece um menu interativo para que o usuário possa importar dados, analisar estatísticas, criar gráficos e realizar operações como salvar ou visualizar os dados formatados.
+> AxiomaPy é um sistema modular para: coleta, processamento, análise e visualização de dados. Ele oferece um menu interativo para que o usuário possa importar dados, analisar estatísticas, criar gráficos e realizar operações como salvar ou visualizar os dados formatados.
 
-🔍 Visão Geral
+### 🔍 Visão Geral
 
 O sistema permite:
 
-\- Coletar dados de \*\*arquivos locais (CSV ou JSON)\*\* ou de \*\*APIs externas configuráveis\*\*.
+* Coletar dados de: Arquivos Locais (CSV ou JSON por enquanto) ou de APIs externas configuráveis.
 
-\- Realizar formatação e seleção de colunas.
+* Realizar formatação e seleção de colunas.
 
-\- Gerar \*\*estatísticas descritivas\*\* e diversos tipos de gráficos.
+* Gerar estatísticas descritivas e diversos tipos de gráficos.
 
-\- Salvar os dados processados em arquivos JSON.
+* Salvar os dados processados em arquivos JSON.
 
-\- Executar análises práticas como desempenho de equipes ou análise de preços.
+* Executar análises práticas como desempenho de equipes, análise de preços, comparação de tempo de uso e diversas outros possíbilidades.
 
-\- Navegar por todas as funcionalidades através de menus intuitivos.
+* Navegar por todas as funcionalidades através de menus.
 
-🗂️ Estrutura de Pastas
+### 🗂️ Estrutura de Pastas
 
-Axioma\_Py/
+**AxiomaPy**
 
-├── analise/ # Manipulação e formatação de dados
+| Pastas               | Função da pasta                                       |
+|:-------------------- |:----------------------------------------------------- |
+| analise/             | Manipulação e formatação de dados                   |
+| coleta/              | Coleta local e via API                              |
+| utils/               | Funções auxiliares (seleção de arquivo, salvamento) |
+| visualizacao/        | Geração de gráficos e estatísticas                  |
+| testes/              | Testes automatizados                                |
+| .github/workflows/   | Pipeline de testes (GitHub Actions)                 |
 
-├── coleta/ # Coleta local e via API
+**Arquivos Importantes**
 
-├── utils/ # Funções auxiliares (seleção de arquivo, salvamento)
+api_Config.json     | Configuração das APIs utilizadas
+requirements.txt    | Bibliotecas necessárias
+main.py             | Execução principal do sistema
 
-├── visualizacao/ # Geração de gráficos e estatísticas
 
-├── testes/ # Testes automatizados
+### ✅ Como Usar o Sistema
 
-├── .github/workflows/ # Pipeline de testes (GitHub Actions)
+#### Execute o arquivo principal:
 
-├── config.json # Configuração das APIs utilizadas
-
-├── requirements.txt # Bibliotecas necessárias
-
-└── main.py # Execução principal do sistema
-
-✅ Como Usar o Sistema
-
-Execute o arquivo principal:
-
-bash
-
-Copiar
-
-Editar
-
+~~~~bash
 python main.py
+~~~~
 
-Utilize o menu interativo para:
+#### Utilize o menu interativo para:
 
-Selecionar a origem dos dados: API ou arquivo local.
+1. Selecionar a origem dos dados: API ou arquivo local.
 
-Formatar as colunas (selecionar e renomear).
+2. Formatar as colunas (selecionar e renomear).
 
-Explorar estatísticas descritivas.
+3. Explorar estatísticas descritivas.
 
-Gerar gráficos: barras, pizza, linha, boxplot, dispersão e histograma.
+4. Gerar gráficos: barras, pizza, linha, boxplot, dispersão e histograma.
 
-Realizar análises práticas como desempenho ou evolução de preços.
+5. Realizar análises práticas como desempenho ou evolução de preços.
 
-Salvar os dados processados.
+6. Salvar os dados processados.
 
-🌐 Como Adicionar uma Nova API
+###🌐 Como Adicionar uma Nova API
 
-As APIs disponíveis são configuradas no arquivo config.json.
+As APIs disponíveis são configuradas no arquivo api_Config.json.
 
 Exemplo de configuração:
-
-json
-
-Copiar
-
-Editar
-
+~~~~json
 {
-
-"apis": \[
-
-{
-
-"nome": "OpenLibrary",
-
-"url\_base": "https://openlibrary.org/search.json",
-
-"parametros": {
-
-"q": "query",
-
-"limit": "limit"
-
+  "nomeAPI": {
+    "url": "https://apiSimples.org/search.json",
+    "params": ["query", "limit"],
+    "requires_key": false,
+    "default_response_path": "docs",
+    "default_fields": ["title", "author_name"]
+  },
 }
+~~~~
 
-}
+**Passos:**
 
-\]
+#### Adicione uma nova API ao sistema preenchendo os campos:
 
-}
+_nome:_ 
 
-Passos:
+_url:_
 
-Adicione um novo objeto no array apis com:
+_parametros:_
 
-nome: Nome identificador da API.
+_requires-key_: (para caso a api requer um login ou algo do tipo para utiliza-lá)
 
-url\_base: URL base da API.
+_default-response-path_: (para definir a camada desejada dentro do JSON recebido da api)
 
-parametros: Parâmetros aceitos pela API.
+_default-fields_: (campos que o sistema sempre coleta na resposta da api)
+ 
+#### O sistema automaticamente reconhecerá a nova API na execução.
 
-O sistema automaticamente reconhecerá a nova API na execução.
+## 💡 Casos de Uso Recomendados
 
-💡 Casos de Uso Recomendados
+>Análise de Desempenho de Funcionários: Comparação entre horas trabalhadas e metas estabelecidas.
+>
+>>Análise de Preços: Exploração de listas de produtos e seus valores.
+>
+>>>Exploração de APIs Externas: Importação de informações de bibliotecas públicas ou APIs customizadas.
+>
+>>>>Análises Categóricas: Frequência de produtos, clientes ou eventos.
+>
+>>>>>Análises Temporais: Evolução de dados ao longo de períodos, como vendas mensais ou produção diária.
 
-Análise de Desempenho de Funcionários: Comparação entre horas trabalhadas e metas estabelecidas.
+## 🔧 Requisitos
 
-Análise de Preços: Exploração de listas de produtos e seus valores.
-
-Exploração de APIs Externas: Importação de informações de bibliotecas públicas ou APIs customizadas.
-
-Análises Categóricas: Frequência de produtos, clientes ou eventos.
-
-Análises Temporais: Evolução de dados ao longo de períodos, como vendas mensais ou produção diária.
-
-🔧 Requisitos
-
-Python 3.11 ou superior
+#### **Python 3.11 ou superior**
 
 Instale as dependências com:
 
-bash
-
-Copiar
-
-Editar
+~~~bash
 
 pip install -r requirements.txt
+
+~~~
