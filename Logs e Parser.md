@@ -56,4 +56,4 @@ args = parser.parse_args()
 
 ---
 
-**Combine ambos:** no início do `main()` você lê `args`, configura `logger` e passa `args` para módulos de coleta e análise, garantindo rastreabilidade e flexibilidade de execução.
+**Combine ambos:** no início do `main()` você lê `args`, configura `logger` e passa `args` para módulos de coleta e análise.
