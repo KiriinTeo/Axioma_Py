@@ -2,7 +2,7 @@
 
 ### 1. Logging
 
-**Configuração básica** (em *logger.py*):
+**Configuração básica** (em `logger.py`):
 
 ```python
 import logging
