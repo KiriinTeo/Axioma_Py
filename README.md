@@ -62,7 +62,7 @@ python main.py
 
 6. Salvar os dados processados.
 
-###🌐 Como Adicionar uma Nova API
+### 🌐 Como Adicionar uma Nova API
 
 As APIs disponíveis são configuradas no arquivo api_Config.json.
 
