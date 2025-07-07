@@ -33,6 +33,8 @@ O sistema permite:
 
 **Arquivos Importantes**
 
+| Arquivo             | Função
+|:--------------------|:----------------------------
 | api_Config.json     | Configuração das APIs utilizadas
 | requirements.txt    | Bibliotecas necessárias
 | main.py             | Execução principal do sistema
