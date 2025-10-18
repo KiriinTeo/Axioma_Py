@@ -3,4 +3,7 @@ seaborn
 matplotlib
 pytest
 requests
+python-multipart
+fastapi
+uvicorn
 

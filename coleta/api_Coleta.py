@@ -11,10 +11,10 @@ class APIDados:
 
         self.params = {}
 
-    def solicitar_parametros(self):
-        for param in self.params_keys:
-            valor = input(f"Digite o valor para '{param}': ")
-            self.params[param] = valor
+    # def solicitar_parametros(self):
+        # for param in self.params_keys:
+            # valor = input(f"Digite o valor para '{param}': ")
+            # self.params[param] = valor
 
     def consultar(self):
         try:

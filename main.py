@@ -75,6 +75,7 @@ def menu_analise(df_analise):
 
         elif opc == '4':
             print("\nDica: O gráfico de dispersão é excelente para analisar correlações, como altura vs peso, vendas vs lucro, etc.")
+            print("\nDeseja ")
             x = input("Informe a coluna X (numérica) (ex: Altura, Vendas): ").strip()
             y = input("Informe a coluna Y (numérica) (ex: Peso, Lucro): ").strip()
             VisualizadorDados.plot_scatter(df_analise, x, y)
@@ -87,10 +88,15 @@ def menu_analise(df_analise):
                 VisualizadorDados.plot_barras(df_desempenho, 'Desempenho')
 
         elif opc == '6':
-            print("\nDica: O gráfico de linha é ideal para acompanhar tendências ao longo do tempo. Ex: Data x Vendas.")
+            print("\nDica: O gráfico de linha (ou área) é ideal para acompanhar tendências ao longo do tempo. Ex: Data x Vendas.")
             x = input("Informe a coluna X (ex: Data, Tempo, Período): ").strip()
-            y = input("Informe a coluna Y (numérica) (ex: Vendas, Temperatura): ").strip()
-            VisualizadorDados.plot_linha(df_analise, x, y)
+            y_cols = input("Informe a(s) coluna(s) Y (numérica), separadas por vírgula se mais de uma (ex: Preços, Quantidades): ").strip().split(',')
+            y_cols = [col.strip() for col in y_cols if col.strip()]
+            area = len(y_cols) > 1
+            if area:
+                VisualizadorDados.plot_linha(df_analise, x, y_cols, area=True)
+            else:
+                VisualizadorDados.plot_linha(df_analise, x, y_cols[0], area=False)
 
         elif opc == '7':
             print("\nDica: O gráfico de pizza é bom para visualizar proporções de categorias como tipos de produtos, regiões, etc.")

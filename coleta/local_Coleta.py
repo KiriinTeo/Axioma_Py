@@ -1,10 +1,7 @@
 import pandas as pd
 from utils.selectArquivo import selecionar_arquivo
 
-def carregarArquivoLoc(caminho=None):
-    if caminho is None:
-        caminho = selecionar_arquivo()
-        
+def carregarArquivoLoc(caminho):
     if not caminho:
         print("Nenhum arquivo foi selecionado.")
         return None
