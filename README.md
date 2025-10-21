@@ -2,7 +2,7 @@
 
 > AxiomaPy é um sistema modular para: coleta, processamento, análise e visualização de dados. Ele oferece um menu interativo para que o usuário possa importar dados, analisar estatísticas, criar gráficos e realizar operações como salvar ou visualizar os dados formatados.
 
-### 🔍 Visão Geral
+### Visão Geral
 
 O sistema permite:
 
@@ -18,7 +18,7 @@ O sistema permite:
 
 * Navegar por todas as funcionalidades através de menus.
 
-### 🗂️ Estrutura de Pastas
+### Estrutura de Pastas
 
 **AxiomaPy**
 
@@ -40,7 +40,7 @@ O sistema permite:
 | main.py             | Execução principal do sistema
 
 
-### ✅ Como Usar o Sistema
+### Como Usar o Sistema
 
 #### Execute o arquivo principal:
 
@@ -62,7 +62,7 @@ python main.py
 
 6. Salvar os dados processados.
 
-### 🌐 Como Adicionar uma Nova API
+### Como Adicionar uma Nova API
 
 As APIs disponíveis são configuradas no arquivo api_Config.json.
 
@@ -97,7 +97,7 @@ _default-fields_: (campos que o sistema sempre coleta na resposta da api)
  
 #### O sistema automaticamente reconhecerá a nova API na execução.
 
-## 💡 Casos de Uso Recomendados
+## Casos de Uso Recomendados
 
 >Análise de Desempenho de Funcionários: Comparação entre horas trabalhadas e metas estabelecidas.
 >
@@ -109,7 +109,7 @@ _default-fields_: (campos que o sistema sempre coleta na resposta da api)
 >
 >>>>>Análises Temporais: Evolução de dados ao longo de períodos, como vendas mensais ou produção diária.
 
-## 🔧 Requisitos
+## Requisitos
 
 #### **Python 3.11 ou superior**
 
