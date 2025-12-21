@@ -24,12 +24,12 @@ O sistema permite:
 
 | Pastas               | Função da pasta                                       |
 |:-------------------- |:----------------------------------------------------- |
-| analise/             | Manipulação e formatação de dados                   |
-| coleta/              | Coleta local e via API                              |
-| utils/               | Funções auxiliares (seleção de arquivo, salvamento) |
-| visualizacao/        | Geração de gráficos e estatísticas                  |
-| testes/              | Testes automatizados                                |
-| .github/workflows/   | Pipeline de testes (GitHub Actions)                 |
+| analise/             | Manipulação e formatação de dados                     |
+| coleta/              | Coleta local e via API                                |
+| utils/               | Funções auxiliares (seleção de arquivo, salvamento)   |
+| visualizacao/        | Geração de gráficos e estatísticas                    |
+| testes/              | Testes automatizados                                  |
+| .github/workflows/   | Pipeline de testes (GitHub Actions)                   |
 
 **Arquivos Importantes**
 
