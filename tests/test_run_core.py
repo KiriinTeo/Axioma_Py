@@ -1,4 +1,9 @@
 import pandas as pd
+import os
+import sys
+
+# denovo com erro de importação e caminho
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from core.contexto import DatasetContext
 from core.analises import describe, null_summary
