@@ -3,4 +3,4 @@ class BasicAnalysisUseCase:
         self.analysis_service = analysis_service
 
     def execute(self, ctx):
-        return self.analysis_service.basic_stats(ctx)
+        return self.analysis_service.basic_stats(ctx).to_dict()

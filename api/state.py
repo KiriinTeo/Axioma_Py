@@ -1,0 +1,1 @@
+contexts = {}  # temporário (depois vira banco ou cache, por hora deuxa esse dict ai msm)

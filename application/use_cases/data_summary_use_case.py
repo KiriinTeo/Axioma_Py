@@ -3,4 +3,4 @@ class DatasetSummaryUseCase:
         self.dataset_service = dataset_service
 
     def execute(self, ctx):
-        return self.dataset_service.summary(ctx)
+        return self.dataset_service.summary(ctx).to_dict()

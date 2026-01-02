@@ -1,11 +1,14 @@
-from fastapi import FastAPI, UploadFile, File
-import pandas as pd
-from core.visualizacao import generate_plot
-from core.analises import basic_statistics
+from fastapi import FastAPI
+from application.app_manager import ApplicationManager
 
-app = FastAPI(title="Axioma ERP - Analytics")
+app = FastAPI(title="Axioma Py")
 
-@app.post("/stats")
-async def get_stats(file: UploadFile = File(...)):
-    df = pd.read_csv(file.file)
-    return basic_statistics(df)
+manager = ApplicationManager()
+
+from api.routes import dataset, plot, analysis, filtro, exportar
+
+app.include_router(dataset.router)
+app.include_router(plot.router)
+app.include_router(analysis.router)
+app.include_router(filtro.router)
+app.include_router(exportar.router)
