@@ -29,3 +29,5 @@ class ApplicationManager:
         self.list_columns_uc = ListColumnsUseCase(self.dataset_service)
         self.dataset_summary_uc = DatasetSummaryUseCase(self.dataset_service)
         self.basic_analysis_uc = BasicAnalysisUseCase(self.analysis_service)
+
+manager = ApplicationManager()

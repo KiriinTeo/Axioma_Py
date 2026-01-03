@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from api.schemas.filter import FilterRequest
+from api.schemas.filterReq import FilterRequest
 from application.app_manager import manager
 from api.state import contexts  
 from auth.dependencies import get_current_user
