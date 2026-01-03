@@ -81,7 +81,7 @@ def test_pipeline(ctx):
     print()
 
 if __name__ == "__main__":
-    print("=== TESTE DO CORE AXIOMA_PY ===\n")
+    print("=== testes de core Axioma ===\n")
 
     test_context()
 
@@ -96,4 +96,4 @@ if __name__ == "__main__":
 
     test_pipeline(base_ctx)
 
-    print("=== TODOS OS TESTES EXECUTADOS COM SUCESSO ===")
+    print("=== todos testes executados ===")

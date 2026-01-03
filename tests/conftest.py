@@ -1,17 +1,16 @@
 import os
 import sys
 
-# Ensure project root is on sys.path for pytest runs
+# pra garantir o caminho correto e o pytest funcionar
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
 import pytest
 
-
 @pytest.fixture(scope="module")
 def ctx():
-    # Provide a default sample DatasetContext for tests that request `ctx`
+    # exemplo de dataset para quando precisar do `ctx`
     import pandas as pd
     from core.contexto import DatasetContext
 

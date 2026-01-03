@@ -1,6 +1,9 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from application.app_manager import manager
 from api.state import contexts
+from auth.dependencies import get_current_user
+from sqlalchemy.orm import Session
+from api.dependencies.db import get_db
 import io
 import base64
 
@@ -11,14 +14,16 @@ def generate_plot(
     dataset_id: int,
     plot_type: str,
     x: str | None = None,
-    y: str | None = None
+    y: str | None = None,
+    user: dict = Depends(get_current_user)
 ):
-    ctx = contexts[dataset_id]
+    user_id = user["sub"]
+    ctx = contexts[(user_id, dataset_id)]
     fig, ax = manager.generate_plot_uc.execute(
         ctx=ctx,
         plot_type=plot_type,
         x=x,
-        y=y
+        y=y,
     )
 
     buf = io.BytesIO()
