@@ -3,7 +3,7 @@ from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from main import app
+from api.main import app
 from infra.database.base import Base
 from api.dependencies.db import get_db
 
@@ -145,3 +145,4 @@ class TestStats:
         )
 
         return token
+
