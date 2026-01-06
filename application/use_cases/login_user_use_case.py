@@ -1,19 +1,20 @@
+from auth.security import verify_password
+from auth.jwt import create_access_token
+from infra.database.models.user import UserModel as User
+from fastapi import HTTPException
+
 class LoginUserUseCase:
-    def __init__(self, user_repo, password_service, token_service):
-        self.user_repo = user_repo
-        self.password_service = password_service
-        self.token_service = token_service
-
     def execute(self, email: str, password: str, db):
-        user = self.user_repo.get_by_email(email, db)
-
+        user = db.query(User).filter(User.email == email).first()
         if not user:
-            raise ValueError("Credenciais inválidas")
+            raise HTTPException(status_code=401, detail="Invalid credentials")
 
-        if not self.password_service.verify(password, user.hashed_password):
-            raise ValueError("Credenciais inválidas")
+        if not verify_password(password, user.hashed_password):
+            raise HTTPException(status_code=401, detail="Invalid credentials")
 
-        return self.token_service.create({
-            "sub": user.id,
-            "email": user.email
-        })
+        token = create_access_token({"sub": str(user.id)})
+        return {
+            "access_token": token,
+            "token_type": "bearer"
+        }
+

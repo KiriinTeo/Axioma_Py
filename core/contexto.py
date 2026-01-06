@@ -7,6 +7,7 @@ class DatasetContext:
     name: str
     dataframe: pd.DataFrame
     metadata: Optional[Dict[str, Any]] = None
+    dataset_id: Optional[int] = None
 
     def shape(self):
         return self.dataframe.shape

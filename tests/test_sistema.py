@@ -92,7 +92,7 @@ class TestDataset:
 
         res = client.post(
             "/dataset/load",
-            params={"path": "tests/data/sample.csv"},
+            params={"path": "data/exemplo.csv"},
             headers={"Authorization": f"Bearer {token}"}
         )
 
@@ -140,7 +140,7 @@ class TestStats:
 
         client.post(
             "/dataset/load",
-            params={"path": "tests/data/sample.csv"},
+            params={"path": "data/exemplo.csv"},
             headers={"Authorization": f"Bearer {token}"}
         )
 

@@ -8,4 +8,7 @@ fastapi
 uvicorn
 SQLAlchemy>=1.4
 httpx
-
+python-jose[cryptography]
+passlib==1.7.4
+bcrypt==4.1.2
+pydantic[email]
