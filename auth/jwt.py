@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta, timezone
-from jose import jwt # grande john doe
+from jose import jwt # grande jose ai
 
 SECRET_KEY = "mudarParaUmBagulhoScreto" #kkkkkkkkkk isso ai
 ALGORITHM = "HS256"

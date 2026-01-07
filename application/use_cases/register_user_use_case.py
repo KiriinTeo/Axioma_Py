@@ -1,18 +1,16 @@
 from auth.security import get_password_hash
-from infra.database.models.user import UserModel as User
+from infra.database.repositories.user_repo import UserRepository as user_repo
 
 class RegisterUserUseCase:
     def execute(self, email: str, password: str, db):
-        existing = db.query(User).filter(User.email == email).first()
+        existing = user_repo(db).get_by_email(email)
+
         if existing:
             raise ValueError("User already exists")
 
-        user = User(
+        user = user_repo(db).create(
             email=email,
-            hashed_password=get_password_hash(password)
+            password_hash=get_password_hash(password)
         )
 
-        db.add(user)
-        db.commit()
-        db.refresh(user)
         return user
