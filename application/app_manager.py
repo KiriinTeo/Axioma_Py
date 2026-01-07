@@ -14,6 +14,9 @@ from application.use_cases.basic_analysis_use_case import BasicAnalysisUseCase
 from application.use_cases.login_user_use_case import LoginUserUseCase
 from application.use_cases.register_user_use_case import RegisterUserUseCase
 
+from infra.database.repositories.user_repo import UserRepository
+from infra.database.repositories.dataset_repo import DatasetRepository
+
 class ApplicationManager:
     def __init__(self):
         # Services
@@ -22,6 +25,10 @@ class ApplicationManager:
         self.export_service = ExportService()
         self.filter_service = FilterService()
         self.analysis_service = AnalysisService()
+
+        """ #Repositorios
+        self.user_repo_cl = UserRepository(db=None)
+        self.dataset_repo_cl = DatasetRepository(db=None) """
 
         # Use cases (casos de uso)
         self.load_dataset_uc = LoadDatasetUseCase(self.dataset_service)

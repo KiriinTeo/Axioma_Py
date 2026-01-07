@@ -1,1 +1,4 @@
-contexts = {}  # temporário (depois vira banco ou cache, por hora deuxa esse dict ai msm)
+from core.contexto import DatasetContext
+
+# cache em memória
+contexts: dict[tuple[int, str], DatasetContext] = {}

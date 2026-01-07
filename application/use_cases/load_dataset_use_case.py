@@ -3,22 +3,26 @@
 # from sqlalchemy.orm import Session
 
 class LoadDatasetUseCase:
-    def __init__(self, dataset_service, dataset_repo):
+    def __init__(self, dataset_service):
         self.dataset_service = dataset_service
-        self.dataset_repo = dataset_repo
 
-    def execute(self, file_path: str, user_id: str):
+    def execute(self, file_path: str, user_id: str, dataset_repo):
         ctx = self.dataset_service.load(file_path)
 
-        dataset = self.dataset_repo.create(
+        dataset_id = dataset_repo.create(
             user_id=user_id,
             name=ctx.name
         )
-
+        
         # enriquecendo metadados do contexto
         ctx.metadata = {
-            "dataset_id": dataset.id,
+            "dataset_id": dataset_id,
             "user_id": user_id
         }
 
-        return ctx, dataset.id
+        return ctx, dataset_id
+
+        
+        
+
+        

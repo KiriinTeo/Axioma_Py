@@ -3,13 +3,21 @@ from core.contexto import DatasetContext
 from core.analises import describe
 
 class DatasetService:
-    def load(self, file_path: str):
+    
+    def load(self, file_path: str) -> DatasetContext:
         if file_path.endswith(".csv"):
-            return load_csv(file_path)
+            df = load_csv(file_path)
         elif file_path.endswith(".json"):
-            return load_json(file_path)
+            df = load_json(file_path)
         else:
             raise ValueError("Formato de arquivo não suportado")
+
+        name = file_path.split("/")[-1]
+
+        return DatasetContext(
+            name=name,
+            dataframe=df
+        )
 
     def list_columns(self, ctx: DatasetContext):
         return list(ctx.dataframe.columns)

@@ -1,5 +1,7 @@
 class AnalysisService:
-    def basic_stats(self, ctx):
+    from core.contexto import DatasetContext
+    
+    def basic_stats(self, ctx: DatasetContext):
         return {
             "mean": ctx.dataframe.mean(numeric_only=True),
             "median": ctx.dataframe.median(numeric_only=True),

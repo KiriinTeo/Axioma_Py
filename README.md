@@ -1,3 +1,5 @@
+# Aviso: documentação atual desatualizada para refatoração do projeto por enquanto, estas informações estão válidas apenas para a versão legafo encontrada na branch "legado" do sistema. 
+
 ## **AxiomaPy**
 
 > AxiomaPy é um sistema modular para: coleta, processamento, análise e visualização de dados. Ele oferece um menu interativo para que o usuário possa importar dados, analisar estatísticas, criar gráficos e realizar operações como salvar ou visualizar os dados formatados.

@@ -11,13 +11,13 @@ router = APIRouter(prefix="/plot", tags=["Plot"])
 
 @router.post("/generate")
 def generate_plot(
-    dataset_id: int,
+    dataset_id: str,
     plot_type: str,
     x: str | None = None,
     y: str | None = None,
     user: dict = Depends(get_current_user)
 ):
-    user_id = user["sub"]
+    user_id = int(user["sub"])
     ctx = contexts[(user_id, dataset_id)]
     fig, ax = manager.generate_plot_uc.execute(
         ctx=ctx,

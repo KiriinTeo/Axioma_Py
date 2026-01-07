@@ -115,15 +115,37 @@ class TestDataset:
 class TestStats:
 
     def test_summary(self, client):
-        token = self._prepare_dataset(client)
+        token = self._auth(client)
+
+        load_res = client.post(
+            "/dataset/load",
+            params={"path": "data/exemplo.csv"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert load_res.status_code == 200
+        dataset_id = load_res.json()["dataset_id"]
 
         res = client.get(
-            "/stats/1/summary",
+            f"/stats/{dataset_id}/summary",
             headers={"Authorization": f"Bearer {token}"}
         )
 
         assert res.status_code == 200
         assert "summary" in res.json()
+    
+    def _auth(self, client):
+        client.post("/auth/register", json={
+            "email": "stats@example.com",
+            "password": "123456"
+        })
+
+        res = client.post("/auth/login", json={
+            "email": "stats@example.com",
+            "password": "123456"
+        })
+
+        return res.json()["access_token"]
 
     def _prepare_dataset(self, client):
         client.post("/auth/register", json={

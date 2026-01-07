@@ -5,7 +5,7 @@ from infra.database.base import Base
 class DatasetModel(Base):
     __tablename__ = "datasets"
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
+    id = Column(String, primary_key=True, index=True)
     user_id = Column(String, ForeignKey("users.id"), index=True)
     name = Column(String)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
