@@ -153,7 +153,7 @@ class TestStats:
         assert res.status_code == 200
         assert "summary" in res.json()
     
-    """ def test_list_columns(self, client):
+    def test_list_columns(self, client):
         token = self._auth(client)
 
         load_res = client.post(
@@ -166,13 +166,13 @@ class TestStats:
         dataset_id = load_res.json()["dataset_id"]
 
         res = client.get(
-            f"/{dataset_id}/columns",
+            f"/dataset/{dataset_id}/columns",
             headers={"Authorization": f"Bearer {token}"}
         )
 
         assert res.status_code == 200
         assert "columns" in res.json()
-        assert isinstance(res.json()["columns"], list) """
+        assert isinstance(res.json()["columns"], list) 
     
     def _auth(self, client):
         client.post("/auth/register", json={

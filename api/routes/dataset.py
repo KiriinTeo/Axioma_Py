@@ -32,7 +32,9 @@ def list_columns(dataset_id: str, user: dict = Depends(get_current_user)):
         raise HTTPException(status_code=404, detail="Dataset não encontrado na memória.")
     
     ctx = contexts[key]
-    return manager.list_columns_uc.execute(ctx)
+    columns = manager.list_columns_uc.execute(ctx)
+
+    return {"columns": columns}
 
 @router.get("")
 def list_datasets(user=Depends(get_current_user), db: Session = Depends(get_db)):
