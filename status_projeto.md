@@ -34,5 +34,4 @@ Sistema ERP analítico em Python, evoluindo para SaaS.
 - Testes passando
 
 ## Próximo passo
-- Criar DatasetRepository e UserRepository
-- Refatorar use cases para usar repositórios
+- Criar dashboards de datasets para assim entregar algo como produto

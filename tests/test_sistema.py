@@ -87,18 +87,6 @@ class TestAuth:
 
 class TestDataset:
 
-    def test_load_dataset(self, client):
-        token = self._auth(client)
-
-        res = client.post(
-            "/dataset/load",
-            params={"path": "data/exemplo.csv"},
-            headers={"Authorization": f"Bearer {token}"}
-        )
-
-        assert res.status_code == 200
-        assert "dataset_id" in res.json()
-
     def _auth(self, client):
         client.post("/auth/register", json={
             "email": "ds@example.com",
@@ -111,6 +99,37 @@ class TestDataset:
         })
 
         return res.json()["access_token"]
+    
+    def test_load_dataset(self, client):
+        token = self._auth(client)
+
+        res = client.post(
+            "/dataset/load",
+            params={"path": "data/exemplo.csv"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert res.status_code == 200
+        assert "dataset_id" in res.json()
+
+    def test_list_datasets(self, client):
+        token = self._auth(client)
+
+        client.post(
+            "/dataset/load",
+            params={"path": "data/exemplo.csv"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        res = client.get(
+            "/dataset",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert res.status_code == 200
+        assert isinstance(res.json(), list)
+        assert len(res.json()) >= 1
+
 
 class TestStats:
 
@@ -133,6 +152,27 @@ class TestStats:
 
         assert res.status_code == 200
         assert "summary" in res.json()
+    
+    """ def test_list_columns(self, client):
+        token = self._auth(client)
+
+        load_res = client.post(
+            "/dataset/load",
+            params={"path": "data/exemplo.csv"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert load_res.status_code == 200
+        dataset_id = load_res.json()["dataset_id"]
+
+        res = client.get(
+            f"/{dataset_id}/columns",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert res.status_code == 200
+        assert "columns" in res.json()
+        assert isinstance(res.json()["columns"], list) """
     
     def _auth(self, client):
         client.post("/auth/register", json={

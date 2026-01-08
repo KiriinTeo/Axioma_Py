@@ -11,13 +11,16 @@ class LoadDatasetUseCase:
 
         dataset_id = dataset_repo.create(
             user_id=user_id,
-            name=ctx.name
+            name=ctx.name,
         )
         
         # enriquecendo metadados do contexto
         ctx.metadata = {
             "dataset_id": dataset_id,
-            "user_id": user_id
+            "user_id": user_id,
+            "rows": ctx.dataframe.shape[0],
+            "columns": ctx.dataframe.shape[1],
+            "schema": {col: str(dtype) for col, dtype in zip(ctx.dataframe.columns, ctx.dataframe.dtypes)}
         }
 
         return ctx, dataset_id

@@ -24,7 +24,7 @@ class DatasetRepository:
             .first()
         )
 
-    def list_by_user(self, user_id: str):
+    def list_by_user(self, user_id: str) -> DatasetModel:
         return (
             self.db.query(DatasetModel)
             .filter(DatasetModel.user_id == user_id)

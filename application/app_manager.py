@@ -13,9 +13,10 @@ from application.use_cases.data_summary_use_case import DatasetSummaryUseCase
 from application.use_cases.basic_analysis_use_case import BasicAnalysisUseCase
 from application.use_cases.login_user_use_case import LoginUserUseCase
 from application.use_cases.register_user_use_case import RegisterUserUseCase
+from application.use_cases.list_datasets_use_case import ListDatasetsUseCase
 
-from infra.database.repositories.user_repo import UserRepository
-from infra.database.repositories.dataset_repo import DatasetRepository
+""" from infra.database.repositories.user_repo import UserRepository
+from infra.database.repositories.dataset_repo import DatasetRepository """
 
 class ApplicationManager:
     def __init__(self):
@@ -38,6 +39,7 @@ class ApplicationManager:
         self.list_columns_uc = ListColumnsUseCase(self.dataset_service)
         self.dataset_summary_uc = DatasetSummaryUseCase(self.dataset_service)
         self.basic_analysis_uc = BasicAnalysisUseCase(self.analysis_service)
+        self.list_datasets_uc = ListDatasetsUseCase()
         self.login_user_uc = LoginUserUseCase()
         self.register_user_uc = RegisterUserUseCase()
 

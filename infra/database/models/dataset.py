@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, ForeignKey, DateTime, Integer
+from sqlalchemy import Column, String, ForeignKey, DateTime, Integer, JSON, DateTime
 from datetime import datetime, timezone
 from infra.database.base import Base
 
@@ -8,4 +8,9 @@ class DatasetModel(Base):
     id = Column(String, primary_key=True, index=True)
     user_id = Column(String, ForeignKey("users.id"), index=True)
     name = Column(String)
+
+    rows = Column(Integer)
+    columns = Column(Integer)
+    metadados = Column(JSON)
+
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
