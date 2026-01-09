@@ -54,3 +54,33 @@ def list_datasets(user=Depends(get_current_user), db: Session = Depends(get_db))
         }
         for d in datasets
     ]
+
+@router.delete("/{dataset_id}")
+def delete_dataset(dataset_id: str, user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    user_id = int(user["sub"])
+
+    dataset_repo = DatasetRepository(db)
+    dataset = dataset_repo.get_by_id(dataset_id)
+
+    if not dataset or dataset.user_id != str(user_id):
+        raise HTTPException(status_code=404, detail="Dataset não encontrado.")
+
+    dataset_repo.delete(dataset_id, user_id)
+
+    contexts.pop((user_id, dataset_id), None)
+
+    return {"status": "deletado"}
+
+@router.patch("/{dataset_id}/rename")
+def rename_dataset(dataset_id: str, new_name: str, user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    user_id = int(user["sub"])
+
+    dataset_repo = DatasetRepository(db)
+    dataset = dataset_repo.get_by_id(dataset_id)
+
+    if not dataset or dataset.user_id != str(user_id):
+        raise HTTPException(status_code=404, detail="Dataset não encontrado.")
+
+    dataset_repo.rename(dataset_id, user_id, new_name)
+
+    return {"name": new_name}
