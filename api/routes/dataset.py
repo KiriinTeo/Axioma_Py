@@ -1,10 +1,11 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Body
 from application.app_manager import manager
 from api.state import contexts
 from auth.dependencies import get_current_user
 from api.dependencies.db import get_db
 from sqlalchemy.orm import Session
 from infra.database.repositories.dataset_repo import DatasetRepository
+from api.schemas.renameReq import RenameRequest
 
 router = APIRouter(prefix="/dataset", tags=["Dataset"]) 
 
@@ -60,7 +61,7 @@ def delete_dataset(dataset_id: str, user: dict = Depends(get_current_user), db: 
     user_id = int(user["sub"])
 
     dataset_repo = DatasetRepository(db)
-    dataset = dataset_repo.get_by_id(dataset_id)
+    dataset = dataset_repo.get_by_id(dataset_id, user_id)
 
     if not dataset or dataset.user_id != str(user_id):
         raise HTTPException(status_code=404, detail="Dataset não encontrado.")
@@ -72,11 +73,12 @@ def delete_dataset(dataset_id: str, user: dict = Depends(get_current_user), db: 
     return {"status": "deletado"}
 
 @router.patch("/{dataset_id}/rename")
-def rename_dataset(dataset_id: str, new_name: str, user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+def rename_dataset(dataset_id: str, req: RenameRequest, user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
     user_id = int(user["sub"])
+    new_name = req.name
 
     dataset_repo = DatasetRepository(db)
-    dataset = dataset_repo.get_by_id(dataset_id)
+    dataset = dataset_repo.get_by_id(dataset_id, user_id)
 
     if not dataset or dataset.user_id != str(user_id):
         raise HTTPException(status_code=404, detail="Dataset não encontrado.")

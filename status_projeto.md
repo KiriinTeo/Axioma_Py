@@ -34,4 +34,4 @@ Sistema ERP analítico em Python, evoluindo para SaaS.
 - Testes passando
 
 ## Próximo passo
-- Criar dashboards de datasets para assim entregar algo como produto
+- Aplicar testes para cada rota, 

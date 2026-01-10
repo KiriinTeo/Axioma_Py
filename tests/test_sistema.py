@@ -130,6 +130,87 @@ class TestDataset:
         assert isinstance(res.json(), list)
         assert len(res.json()) >= 1
 
+    def test_delete_dataset(self, client):
+        token = self._auth(client)
+
+        load_res = client.post(
+            "/dataset/load",
+            params={"path": "data/exemplo.csv"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert load_res.status_code == 200
+        dataset_id = load_res.json()["dataset_id"]
+
+        del_res = client.delete(
+            f"/dataset/{dataset_id}",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert del_res.status_code == 200
+
+        list_res = client.get(
+            "/dataset",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        datasets = list_res.json()
+        assert all(d["id"] != dataset_id for d in datasets)
+
+    def test_rename_dataset(self, client):
+        token = self._auth(client)
+
+        load_res = client.post(
+            "/dataset/load",
+            params={"path": "data/exemplo.csv"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert load_res.status_code == 200
+        dataset_id = load_res.json()["dataset_id"]
+
+        new_name = "Novo Nome do Dataset"
+        rename_res = client.patch(
+            f"/dataset/{dataset_id}/rename",
+            json={"new_name": new_name},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert rename_res.status_code == 200
+        assert rename_res.json()["name"] == new_name
+
+        list_res = client.get(
+            "/dataset",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        datasets = list_res.json()
+        renamed_dataset = next((d for d in datasets if d["id"] == dataset_id), None)
+        assert renamed_dataset is not None
+        assert renamed_dataset["name"] == new_name
+    
+    def test_export_dataset(self, client):
+        token = self._auth(client)
+
+        load_res = client.post(
+            "/dataset/load",
+            params={"path": "data/exemplo.csv"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert load_res.status_code == 200
+        dataset_id = load_res.json()["dataset_id"]
+
+        export_path = "data/exported_exemplo.csv"
+        export_res = client.post(
+            "/export/to_csv",
+            params={"dataset_id": dataset_id, "path": export_path},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert export_res.status_code == 200
+        assert export_res.json()["status"] == "exported"
+        assert export_res.json()["path"] == export_path
 
 class TestStats:
 
@@ -173,6 +254,78 @@ class TestStats:
         assert res.status_code == 200
         assert "columns" in res.json()
         assert isinstance(res.json()["columns"], list) 
+
+    def test_basic_analysis(self, client):
+        token = self._auth(client)
+
+        load_res = client.post(
+            "/dataset/load",
+            params={"path": "data/exemplo.csv"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert load_res.status_code == 200
+        dataset_id = load_res.json()["dataset_id"]
+
+        res = client.get(
+            f"/stats/{dataset_id}/analysis",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert res.status_code == 200
+        assert "analysis" in res.json()
+
+    def test_apply_filter(self, client):
+        token = self._prepare_dataset(client)
+
+        load_res = client.post(
+            "/dataset/load",
+            params={"path": "data/exemplo.csv"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert load_res.status_code == 200
+        dataset_id = load_res.json()["dataset_id"]
+
+        filter_res = client.post(
+            "/filter/apply",
+            json={
+                "dataset_id": dataset_id,
+                "column": "x",
+                "operator": "<",
+                "value": 5
+            },
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert filter_res.status_code == 200
+        assert "dataset_id" in filter_res.json()
+    
+    def test_plot_generation(self, client):
+        token = self._prepare_dataset(client)
+
+        load_res = client.post(
+            "/dataset/load",
+            params={"path": "data/exemplo.csv"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert load_res.status_code == 200
+        dataset_id = load_res.json()["dataset_id"]
+
+        plot_res = client.post(
+            "/plot/generate",
+            json={
+                "dataset_id": dataset_id,
+                "plot_type": "scatter",
+                "x": "x",
+                "y": "y"
+            },
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert plot_res.status_code == 200
+        assert "image" in plot_res.json()
     
     def _auth(self, client):
         client.post("/auth/register", json={

@@ -1,4 +1,7 @@
 from typing import Dict, Any, Optional
+import matplotlib
+matplotlib.use("Agg")  # Usar backend sem interface gráfica
+
 import matplotlib.pyplot as plt
 from core.contexto import DatasetContext
 
@@ -8,12 +11,12 @@ def generate_plot(
     x: Optional[str] = None,
     y: Optional[str] = None,
     title: Optional[str] = None,
-    options: Optional[Dict[str, Any]] = None
+    options: Optional[Dict[str, Any]] = None,
+    user: Optional[str] = None
 ):
     if options is None:
         # onde fica as opções alteração dos gráficos disponiveis 
         # informação puxada do usuário ou da requisição específica, não generalizar toda instância aqui ou o código morre :v 
-
         options = { } 
 
     df = ctx.dataframe

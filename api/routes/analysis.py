@@ -21,6 +21,12 @@ def dataset_summary(dataset_id: str, user=Depends(get_current_user)):
 @router.get("/{dataset_id}/analysis")
 def basic_analysis(dataset_id: str, user=Depends(get_current_user)):
     user_id = int(user["sub"])
-    ctx = contexts[(user_id, dataset_id)]
+
+    key = (user_id, dataset_id)
+    if key not in contexts:
+        raise HTTPException(status_code=404, detail="Dataset não encontrado na memória.")
+    
+    ctx = contexts[key]
     analysis = manager.basic_analysis_uc.execute(ctx)
+    
     return {"analysis": analysis}

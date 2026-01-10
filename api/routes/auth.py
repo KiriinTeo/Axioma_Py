@@ -14,7 +14,7 @@ def register(req: RegisterRequest, db: Session = Depends(get_db)):
         password=req.password,
         db=db
     )
-    # return {"id": user.id, "email": user.email}
+    
     return {"user_id": user.id} # retorno simplificado por enquanto
 
 @router.post("/login")
