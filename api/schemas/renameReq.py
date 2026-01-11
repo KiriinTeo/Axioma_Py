@@ -1,4 +1,4 @@
-from pydantic import BaseModel 
+from pydantic import BaseModel
 
 class RenameRequest(BaseModel):
-    name: str
+    new_name: str

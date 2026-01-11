@@ -14,6 +14,9 @@ class DatasetService:
 
         name = file_path.split("/")[-1]
 
+        # normalizar nomes das colunas pra facilitar o retorno via API
+        df.columns = [c.replace('coluna_', '') for c in df.columns]
+
         return DatasetContext(
             name=name,
             dataframe=df

@@ -75,7 +75,7 @@ def delete_dataset(dataset_id: str, user: dict = Depends(get_current_user), db: 
 @router.patch("/{dataset_id}/rename")
 def rename_dataset(dataset_id: str, req: RenameRequest, user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
     user_id = int(user["sub"])
-    new_name = req.name
+    new_name = req.new_name
 
     dataset_repo = DatasetRepository(db)
     dataset = dataset_repo.get_by_id(dataset_id, user_id)

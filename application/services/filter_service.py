@@ -1,7 +1,8 @@
-import core.contexto as DatasetContext
+from core.contexto import DatasetContext
+
 
 class FilterService:
-    def apply(self, ctx, column: str, operator: str, value):
+    def apply(self, ctx: DatasetContext, column: str, operator: str, value):
         df = ctx.dataframe
 
         if operator == "==":
@@ -13,4 +14,11 @@ class FilterService:
         else:
             raise ValueError("Operador não suportado")
 
-        return DatasetContext(filtered)
+        # preserve context name and metadata when creating new context
+        new_ctx = DatasetContext(
+            name=ctx.name,
+            dataframe=filtered,
+            metadata={**(ctx.metadata or {}), "rows": int(filtered.shape[0]), "columns": int(filtered.shape[1])}
+        )
+
+        return new_ctx

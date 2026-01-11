@@ -1,7 +1,9 @@
-from pydantic import BaseModel # pydantic baseModel é mais usado pra dados estruturados, lembrar disso
+from pydantic import BaseModel
+from typing import Any
+
 
 class FilterRequest(BaseModel):
     dataset_id: str
     column: str
     operator: str
-    value: str
+    value: Any

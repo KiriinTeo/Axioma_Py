@@ -16,4 +16,4 @@ class AnalysisService:
 
         return stat_info
     
-    # adicionar todos os dados básico analítcos aqui (frequencias, quantidade etc etc)
+    # adicionar todos os dados básico analítcos aqui (frequencias, quantidade etc etc) / 11/01/26 (já feito)

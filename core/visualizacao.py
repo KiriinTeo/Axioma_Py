@@ -79,4 +79,4 @@ def generate_plot(
     ax.set_xlabel(x or "")
     ax.set_ylabel(y or "")
 
-    return fig
+    return fig, ax # retornar figura e eixo para possível manipulação futura pq só a figura nn funcionava :v
