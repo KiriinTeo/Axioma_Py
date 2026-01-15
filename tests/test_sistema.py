@@ -84,6 +84,12 @@ class TestAuth:
         body = res.json()
         assert res.status_code == 200
         assert "access_token" in body
+    
+    def test_health(self, client):
+        res = client.get("/health")
+        assert res.status_code == 200
+        assert res.json()["status"] == "ok"
+
 
 class TestDataset:
 
