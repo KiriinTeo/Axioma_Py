@@ -32,6 +32,7 @@ Sistema ERP analítico em Python, evoluindo para SaaS.
 - Use cases funcionando
 - Rotas funcionando
 - Testes passando
+- Docker funcionando em VM local
 
 ## Próximo passo
-- Aplicar testes para cada rota, 
+- Profissionalizar o docker e preparar para cloud e billing (cloud seria a OCI) 
