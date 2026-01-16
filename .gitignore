@@ -49,3 +49,8 @@ docker-volume/
 .idea/
 .DS_Store
 Thumbs.db
+
+# ========================
+# Nuvem
+# ========================
+# wallet/

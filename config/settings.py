@@ -1,4 +1,5 @@
 from pydantic_settings import BaseSettings
+import os
 
 class Settings(BaseSettings):
 
@@ -9,10 +10,15 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
     ALGORITHM: str = "HS256"
                                            
-    DATABASE_URL: str                           # pro banco de dados
+    DATABASE_URL: str | None = None             # pro banco de dados E fallback/local
+
+    ORACLE_USER: str | None = None              # dados pra Oracle OCI
+    ORACLE_PASSWORD: str | None = None                        
+    ORACLE_DSN: str | None = None                               
+    ORACLE_WALLET_PATH: str | None = None                  
 
     model_config = {
-        "env_file": ".env",
+        "env_file": os.getenv("ENV_FILE", ".env"),       # adaptação para separar .env de dev e prod
         "env_file_encoding": "utf-8",
     }
 

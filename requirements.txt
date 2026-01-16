@@ -14,3 +14,4 @@ bcrypt==4.1.2
 pydantic[email]
 pydantic_settings
 gunicorn
+oracledb
