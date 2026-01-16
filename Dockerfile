@@ -28,5 +28,8 @@ COPY . .
 # Porta que o FastAPI usa
 EXPOSE 8000
 
-# Comando de inicialização
+# Comando de inicialização para conteineir Docker
+# CMD ["gunicorn", "api.main:app", "-k", "uvicorn.workers.UvicornWorker", "-w", "4", "-b", "0.0.0.0:8000"]
+
+# Comando de inicializção local/host
 CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]

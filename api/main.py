@@ -1,9 +1,20 @@
 from fastapi import FastAPI
 from application.app_manager import ApplicationManager
+from contextlib import asynccontextmanager
+from infra.logging.logger import setup_logger
 
-app = FastAPI(title="Axioma Py")
+logger = setup_logger()
 
-manager = ApplicationManager()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    logger.info("Iniciando o Axioma...")
+
+    app.state.manager = ApplicationManager()
+    yield
+
+    logger.info("Finalizando o Axioma...")
+
+app = FastAPI(title="Axioma Py",lifespan=lifespan)
 
 from api.routes import dataset, plot, analysis, filtro, exportar, auth, saude
 
