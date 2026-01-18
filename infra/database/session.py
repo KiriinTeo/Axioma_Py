@@ -2,16 +2,25 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from config.settings import settings
 
-#DATABASE_URL = "sqlite:///./axioma.db"
-DATABASE_URL = settings.DATABASE_URL
+_engine = None
+_SessionLocal = None
 
-engine = create_engine(
-    DATABASE_URL,
-    connect_args={"check_same_thread": False}
-)
+def get_engine():
+    global _engine
+    if _engine is None:
+        _engine = create_engine(
+            settings.DATABASE_URL,
+            pool_pre_ping=True,
+        )
+    return _engine
 
-SessionLocal = sessionmaker(
-    autocommit=False,
-    autoflush=False,
-    bind=engine
-)
+
+def get_sessionmaker():
+    global _SessionLocal
+    if _SessionLocal is None:
+        _SessionLocal = sessionmaker(
+            autocommit=False,
+            autoflush=False,
+            bind=get_engine(),
+        )
+    return _SessionLocal
