@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 
 from api.main import app
 from infra.database.base import Base
-from api.dependencies.db import get_db
+from api.dependencies.deps import get_db
 
 # =========================
 # Database de teste (isolada)
@@ -88,7 +88,7 @@ class TestAuth:
     def test_health(self, client):
         res = client.get("/health")
         assert res.status_code == 200
-        assert res.json()["status"] == "ok"
+        assert res.json()["status"] == "saudavel"
 
 
 class TestDataset:

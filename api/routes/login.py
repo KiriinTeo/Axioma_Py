@@ -3,7 +3,7 @@ from application.app_manager import manager
 from api.state import contexts
 from api.schemas.loginReq import LoginRequest
 from auth.dependencies import get_current_user
-from api.dependencies.db import get_db
+from api.dependencies.deps import get_db
 from sqlalchemy.orm import Session
 
 router = APIRouter(prefix="/login", tags=["Login"])

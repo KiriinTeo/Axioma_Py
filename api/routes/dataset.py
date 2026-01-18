@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, Body
 from application.app_manager import manager
 from api.state import contexts
 from auth.dependencies import get_current_user
-from api.dependencies.db import get_db
+from api.dependencies.deps import get_db
 from sqlalchemy.orm import Session
 from infra.database.repositories.dataset_repo import DatasetRepository
 from api.schemas.renameReq import RenameRequest
