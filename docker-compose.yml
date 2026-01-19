@@ -1,15 +1,16 @@
 services:
   api:
-    volume:
-      - ./wallet:/app/wallet
-    enviroment:
-      ORACLE_WALLET_PATH: /app/wallet
     build: .
     container_name: axioma_api
+
     ports:
       - "8000:8000"
+
     env_file:
-      - .env.dev
+      - .env
+
     volumes:
       - .:/app
+      - ./wallet:/app/wallet
+      
     restart: unless-stopped
