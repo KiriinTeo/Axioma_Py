@@ -22,4 +22,16 @@ class Settings(BaseSettings):
         "env_file_encoding": "utf-8",
     }
 
+    @property
+    def database_url(self) -> str:
+        if self.ENV == "production" and self.ORACLE_DSN:
+            return (
+                f"oracle+oracledb://{self.ORACLE_USER}:"
+                f"{self.ORACLE_PASSWORD}@{self.ORACLE_DSN}"
+            )
+        elif self.DATABASE_URL:
+            return self.DATABASE_URL
+        else:
+            return "sqlite:///./test.db"  # fallback/local
+
 settings = Settings()

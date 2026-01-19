@@ -14,13 +14,22 @@ def register(req: RegisterRequest, db: Session = Depends(get_db)):
         password=req.password,
         db=db
     )
+    db.add(user)
+    db.commit()
+    db.refresh(user)
     
     return {"user_id": user.id} # retorno simplificado por enquanto
 
 @router.post("/login")
 def login(req: LoginRequest, db: Session = Depends(get_db)):
-    return manager.login_user_uc.execute(
+    login = manager.login_user_uc.execute(
         email=req.email,
         password=req.password,
         db=db
     )
+    """ db.add(login)
+    db.commit()
+    db.refresh(login) """
+
+    return login
+    
