@@ -9,7 +9,7 @@ def get_engine():
     global _engine
     if _engine is None:
         _engine = create_engine(
-            settings.DATABASE_URL,
+            settings.database_url,
             pool_pre_ping=True,
         )
     return _engine
