@@ -1,7 +1,11 @@
 from fastapi import APIRouter, Depends, Body, HTTPException
+from sqlalchemy.orm import Session
 from application.app_manager import manager
 from api.state import contexts
 from auth.dependencies import get_current_user
+from api.dependencies.deps import get_db
+from infra.database.models.plot import PlotModel
+from uuid import uuid4
 import io
 import base64
 
@@ -13,7 +17,8 @@ def generate_plot(
     plot_type: str = Body(...),
     x: str | None = Body(None),
     y: str | None = Body(None),
-    user: dict = Depends(get_current_user)
+    user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db)
 ):
     user_id = int(user["sub"])
     key = (user_id, dataset_id)
@@ -35,6 +40,18 @@ def generate_plot(
     buf = io.BytesIO()
     fig.savefig(buf, format="png")
     buf.seek(0)
+    
+    # Salvar metadados do gráfico no BD
+    plot_model = PlotModel(
+        id=str(uuid4()),
+        user_id=user_id,
+        dataset_id=dataset_id,
+        plot_type=plot_type,
+        x_axis=x,
+        y_axis=y
+    )
+    db.add(plot_model)
+    db.commit()
 
     encoded = base64.b64encode(buf.read()).decode()
     return {"image": encoded}

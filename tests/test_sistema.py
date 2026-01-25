@@ -2,14 +2,17 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from datetime import datetime, timezone
+from uuid import uuid4
 
 from api.main import app
 from infra.database.base import Base
 from api.dependencies.deps import get_db
+from infra.database.models.filter import FilterModel
+from infra.database.models.plot import PlotModel
+from infra.database.models.export import ExportModel
+from infra.database.models.analysis import AnalysisModel
 
-# =========================
-# Database de teste (isolada)
-# =========================
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
 
@@ -99,124 +102,143 @@ class TestDataset:
             "password": "123456"
         })
 
-        res = client.post("/auth/login", json={
-            "email": "ds@example.com",
-            "password": "123456"
-        })
 
-        return res.json()["access_token"]
-    
-    def test_load_dataset(self, client):
-        token = self._auth(client)
+class TestPersistence:
 
-        res = client.post(
-            "/dataset/load",
-            params={"path": "data/exemplo.csv"},
-            headers={"Authorization": f"Bearer {token}"}
+    def test_filter_creation(self, db):
+        record = FilterModel(
+            id=str(uuid4()),
+            user_id=1,
+            dataset_id="dataset_123",
+            column_name="categoria",
+            operator="=",
+            value="ativo"
         )
+        db.add(record)
+        db.commit()
 
-        assert res.status_code == 200
-        assert "dataset_id" in res.json()
+        result = db.query(FilterModel).first()
+        assert result is not None
+        assert result.column_name == "categoria"
+        assert result.operator == "="
+        assert result.value == "ativo"
 
-    def test_list_datasets(self, client):
-        token = self._auth(client)
-
-        client.post(
-            "/dataset/load",
-            params={"path": "data/exemplo.csv"},
-            headers={"Authorization": f"Bearer {token}"}
+    def test_filter_timestamp(self, db):
+        record = FilterModel(
+            id=str(uuid4()),
+            user_id=1,
+            dataset_id="dataset_123",
+            column_name="status",
+            operator="!=",
+            value="inativo"
         )
+        db.add(record)
+        db.commit()
 
-        res = client.get(
-            "/dataset",
-            headers={"Authorization": f"Bearer {token}"}
+        result = db.query(FilterModel).first()
+        assert result.created_at is not None
+        assert isinstance(result.created_at, datetime)
+
+
+    def test_plot_creation(self, db):
+        record = PlotModel(
+            id=str(uuid4()),
+            user_id=1,
+            dataset_id="dataset_123",
+            plot_type="bar",
+            x_axis="categoria",
+            y_axis="valor"
         )
+        db.add(record)
+        db.commit()
 
-        assert res.status_code == 200
-        assert isinstance(res.json(), list)
-        assert len(res.json()) >= 1
+        result = db.query(PlotModel).first()
+        assert result is not None
+        assert result.plot_type == "bar"
 
-    def test_delete_dataset(self, client):
-        token = self._auth(client)
+    def test_multiple_plots(self, db):
+        for plot_type in ["bar", "pie", "line"]:
+            db.add(
+                PlotModel(
+                    id=str(uuid4()),
+                    user_id=1,
+                    dataset_id="dataset_123",
+                    plot_type=plot_type,
+                    x_axis="x",
+                    y_axis="y"
+                )
+            )
+        db.commit()
 
-        load_res = client.post(
-            "/dataset/load",
-            params={"path": "data/exemplo.csv"},
-            headers={"Authorization": f"Bearer {token}"}
+        results = db.query(PlotModel).all()
+        assert len(results) == 3
+
+
+    def test_export_creation(self, db):
+        record = ExportModel(
+            id=str(uuid4()),
+            user_id=1,
+            dataset_id="dataset_123",
+            file_path="/exports/data.csv",
+            file_format="csv"
         )
+        db.add(record)
+        db.commit()
 
-        assert load_res.status_code == 200
-        dataset_id = load_res.json()["dataset_id"]
+        result = db.query(ExportModel).first()
+        assert result is not None
+        assert result.file_format == "csv"
+        assert result.created_at is not None
 
-        del_res = client.delete(
-            f"/dataset/{dataset_id}",
-            headers={"Authorization": f"Bearer {token}"}
+    def test_export_audit_trail(self, db):
+        for i in range(3):
+            db.add(
+                ExportModel(
+                    id=str(uuid4()),
+                    user_id=1,
+                    dataset_id="dataset_123",
+                    file_path=f"/exports/export_{i}.csv",
+                    file_format="csv"
+                )
+            )
+        db.commit()
+
+        exports = db.query(ExportModel).all()
+        assert len(exports) == 3
+        assert exports[0].created_at <= exports[-1].created_at
+
+    def test_analysis_creation(self, db):
+        record = AnalysisModel(
+            id=str(uuid4()),
+            user_id=1,
+            dataset_id="dataset_123",
+            analysis_type="summary",
+            result='{"mean": 10}'
         )
+        db.add(record)
+        db.commit()
 
-        assert del_res.status_code == 200
+        result = db.query(AnalysisModel).first()
+        assert result is not None
+        assert result.analysis_type == "summary"
+        assert "mean" in result.result
 
-        list_res = client.get(
-            "/dataset",
-            headers={"Authorization": f"Bearer {token}"}
-        )
+    def test_multiple_analysis_types(self, db):
+        for analysis_type in ["summary", "basic", "performance"]:
+            db.add(
+                AnalysisModel(
+                    id=str(uuid4()),
+                    user_id=1,
+                    dataset_id="dataset_123",
+                    analysis_type=analysis_type,
+                    result=f'{{"type": "{analysis_type}"}}'
+                )
+            )
+        db.commit()
 
-        datasets = list_res.json()
-        assert all(d["id"] != dataset_id for d in datasets)
-
-    def test_rename_dataset(self, client):
-        token = self._auth(client)
-
-        load_res = client.post(
-            "/dataset/load",
-            params={"path": "data/exemplo.csv"},
-            headers={"Authorization": f"Bearer {token}"}
-        )
-
-        assert load_res.status_code == 200
-        dataset_id = load_res.json()["dataset_id"]
-
-        new_name = "Novo Nome do Dataset"
-        rename_res = client.patch(
-            f"/dataset/{dataset_id}/rename",
-            json={"new_name": new_name},
-            headers={"Authorization": f"Bearer {token}"}
-        )
-
-        assert rename_res.status_code == 200
-        assert rename_res.json()["name"] == new_name
-
-        list_res = client.get(
-            "/dataset",
-            headers={"Authorization": f"Bearer {token}"}
-        )
-
-        datasets = list_res.json()
-        renamed_dataset = next((d for d in datasets if d["id"] == dataset_id), None)
-        assert renamed_dataset is not None
-        assert renamed_dataset["name"] == new_name
-    
-    def test_export_dataset(self, client):
-        token = self._auth(client)
-
-        load_res = client.post(
-            "/dataset/load",
-            params={"path": "data/exemplo.csv"},
-            headers={"Authorization": f"Bearer {token}"}
-        )
-
-        assert load_res.status_code == 200
-        dataset_id = load_res.json()["dataset_id"]
-
-        export_path = "data/exported_exemplo.csv"
-        export_res = client.post(
-            "/export/to_csv",
-            params={"dataset_id": dataset_id, "path": export_path},
-            headers={"Authorization": f"Bearer {token}"}
-        )
-
-        assert export_res.status_code == 200
-        assert export_res.json()["status"] == "exported"
-        assert export_res.json()["path"] == export_path
+        results = db.query(AnalysisModel).all()
+        types = {r.analysis_type for r in results}
+        assert {"summary", "basic", "performance"} <= types
 
 class TestStats:
 

@@ -3,7 +3,7 @@ from application.app_manager import ApplicationManager
 from contextlib import asynccontextmanager
 from infra.logging.logger import setup_logger
 from infra.database.base import Base
-from infra.database.session import get_engine
+from infra.database.connection import engine
 
 logger = setup_logger()
 
@@ -12,7 +12,7 @@ async def lifespan(app: FastAPI):
     logger.info("Iniciando o Axioma...")
 
     app.state.manager = ApplicationManager()
-    Base.metadata.create_all(bind=get_engine())
+    Base.metadata.create_all(bind=engine)
     yield
 
     logger.info("Finalizando o Axioma...")

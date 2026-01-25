@@ -14,8 +14,9 @@ class Settings(BaseSettings):
 
     ORACLE_USER: str | None = None              # dados pra Oracle OCI
     ORACLE_PASSWORD: str | None = None                        
-    ORACLE_DSN: str | None = None                               
-    ORACLE_WALLET_PATH: str | None = None                  
+    ORACLE_DSN: str | None = None  
+    TNS_ADMIN: str | None = None
+    WALLET_PASSWORD: str | None = None          # senha do wallet se necessário                                              
 
     model_config = {
         "env_file": os.getenv("ENV_FILE", ".env"),       # adaptação para separar .env de dev e prod
@@ -24,14 +25,8 @@ class Settings(BaseSettings):
 
     @property
     def database_url(self) -> str:
-        if self.ENV == "production" and self.ORACLE_DSN:
-            return (
-                f"oracle+oracledb://{self.ORACLE_USER}:"
-                f"{self.ORACLE_PASSWORD}@{self.ORACLE_DSN}"
-            )
-        elif self.DATABASE_URL:
+        if self.DATABASE_URL:
             return self.DATABASE_URL
-        else:
-            return "sqlite:///./test.db"  # fallback/local
+        return "sqlite:///./test.db"  # fallback para dev
 
 settings = Settings()
