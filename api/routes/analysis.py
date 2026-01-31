@@ -21,7 +21,6 @@ def dataset_summary(dataset_id: str, user=Depends(get_current_user), db: Session
     ctx = contexts[key]
     summary = ctx.dataframe.describe().to_dict()
     
-    # Salvar no BD
     analysis = AnalysisModel(
         id=str(uuid4()),
         user_id=user_id,
@@ -45,7 +44,6 @@ def basic_analysis(dataset_id: str, user=Depends(get_current_user), db: Session 
     ctx = contexts[key]
     analysis_result = manager.basic_analysis_uc.execute(ctx)
     
-    # Salvar no BD
     analysis = AnalysisModel(
         id=str(uuid4()),
         user_id=user_id,

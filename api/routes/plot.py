@@ -41,7 +41,6 @@ def generate_plot(
     fig.savefig(buf, format="png")
     buf.seek(0)
     
-    # Salvar metadados do gráfico no BD
     plot_model = PlotModel(
         id=str(uuid4()),
         user_id=user_id,

@@ -1,13 +1,15 @@
 from infra.database.models.user import UserModel
+import random
 
 class UserRepository:
     def __init__(self, db):
         self.db = db
 
-    def create(self, email: str, password_hash: str) -> UserModel:
+    def create(self, email: str, password_hash: str, id: int) -> UserModel:
         user = UserModel(
             email=email,
-            password_hash=password_hash
+            password_hash=password_hash,
+            id= random.randint(1, 999999)
         )
         self.db.add(user)
         self.db.commit()

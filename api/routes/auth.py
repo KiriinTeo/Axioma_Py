@@ -12,6 +12,7 @@ def register(req: RegisterRequest, db: Session = Depends(get_db)):
     user = manager.register_user_uc.execute(
         email=req.email,
         password=req.password,
+        id=req.id,
         db=db
     )
     db.add(user)

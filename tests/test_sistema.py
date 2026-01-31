@@ -67,8 +67,12 @@ class TestAuth:
     def test_register_user(self, client):
         res = client.post("/auth/register", json={
             "email": "test@example.com",
-            "password": "123456"
+            "password": "123456",
+            "id": "1"
         })
+
+        print(res.status_code)
+        print(res.json())
 
         assert res.status_code == 200
         assert "user_id" in res.json()
@@ -76,7 +80,8 @@ class TestAuth:
     def test_login_user(self, client):
         client.post("/auth/register", json={
             "email": "login@example.com",
-            "password": "123456"
+            "password": "123456",
+            "id": "1"
         })
 
         res = client.post("/auth/login", json={
@@ -99,8 +104,130 @@ class TestDataset:
     def _auth(self, client):
         client.post("/auth/register", json={
             "email": "ds@example.com",
+            "password": "123456",
+            "id": "1"
+        })
+    
+        res = client.post("/auth/login", json={
+            "email": "ds@example.com",
             "password": "123456"
         })
+
+        return res.json()["access_token"]
+
+    def test_load_dataset(self, client):
+        token = self._auth(client)
+
+        res = client.post(
+            "/dataset/load",
+            params={"path": "data/exemplo.csv"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert res.status_code == 200
+        assert "dataset_id" in res.json()
+
+    def test_list_datasets(self, client):
+        token = self._auth(client)
+
+        load_res = client.post(
+            "/dataset/load",
+            params={"path": "data/exemplo.csv"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert load_res.status_code == 200
+
+        res = client.get(
+            "/dataset",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        datasets = res.json()
+        assert isinstance(datasets, list)
+        assert len(datasets) >= 1
+
+    def test_delete_dataset(self, client):
+        token = self._auth(client)
+
+        load_res = client.post(
+            "/dataset/load",
+            params={"path": "data/exemplo.csv"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert load_res.status_code == 200
+        dataset_id = load_res.json()["dataset_id"]
+
+        del_res = client.delete(
+            f"/dataset/{dataset_id}",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert del_res.status_code == 200
+
+        get_res = client.get(
+            "/dataset",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        datasets = get_res.json()
+        assert all(d["id"] != dataset_id for d in datasets)
+    
+    def test_rename_dataset(self, client):
+        token = self._auth(client)
+
+        load_res = client.post(
+            "/dataset/load",
+            params={"path": "data/exemplo.csv"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert load_res.status_code == 200
+
+        dataset_id = load_res.json()["dataset_id"]
+
+        rename_res = client.patch(
+            f"/dataset/{dataset_id}/rename",
+            json={"new_name": "Novo Nome"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert rename_res.status_code == 200
+
+        get_res = client.get(
+            "/dataset",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        datasets = get_res.json()
+        renamed = next((d for d in datasets if d["id"] == dataset_id), None)
+        assert renamed is not None
+        assert renamed["name"] == "Novo Nome"
+
+    def test_export_dataset(self, client):
+        token = self._auth(client)
+
+        load_res = client.post(
+            "/dataset/load",
+            params={"path": "data/exemplo.csv"},
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert load_res.status_code == 200
+        dataset_id = load_res.json()["dataset_id"]
+
+        export_res = client.post(
+            "/export/to_csv",
+            params={
+                "dataset_id": dataset_id,
+                "path": "data/test_export.csv"
+            },
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+        assert export_res.status_code == 200
+        assert export_res.json()["status"] == "exported"
 
 
 class TestPersistence:
@@ -358,7 +485,8 @@ class TestStats:
     def _auth(self, client):
         client.post("/auth/register", json={
             "email": "stats@example.com",
-            "password": "123456"
+            "password": "123456",
+            "id": "1"
         })
 
         res = client.post("/auth/login", json={
@@ -371,7 +499,8 @@ class TestStats:
     def _prepare_dataset(self, client):
         client.post("/auth/register", json={
             "email": "stats@example.com",
-            "password": "123456"
+            "password": "123456",
+            "id": "1"
         })
 
         login = client.post("/auth/login", json={

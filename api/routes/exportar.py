@@ -20,7 +20,6 @@ def export_dataset(dataset_id: str, path: str, user: dict = Depends(get_current_
     ctx = contexts[key]
     manager.export_dataset_uc.execute(ctx, path)
     
-    # Salvar log de exportação no BD (auditoria)
     export_model = ExportModel(
         id=str(uuid4()),
         user_id=user_id,

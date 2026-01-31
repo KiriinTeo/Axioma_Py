@@ -4,9 +4,6 @@ from config.settings import settings
 import os
 
 def get_engine():
-    """Create database engine with support for Oracle ADB and SQLite"""
-    
-    # Oracle Autonomous Database with mTLS Wallet
     if settings.ORACLE_DSN and settings.ORACLE_USER and settings.ORACLE_PASSWORD:
         url = (
             f"oracle+oracledb://{settings.ORACLE_USER}:"
@@ -28,10 +25,9 @@ def get_engine():
             connect_args=connect_args,
             echo=settings.DEBUG,
             pool_pre_ping=True,
-            pool_recycle=3600  # Recycle connections every hour
+            pool_recycle=3600  
         )
     
-    # Fallback to SQLite for development
     db_url = settings.DATABASE_URL or "sqlite:///./test.db"
     return create_engine(
         db_url,

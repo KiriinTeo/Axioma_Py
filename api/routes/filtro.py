@@ -30,7 +30,6 @@ def apply_filter(req: FilterRequest, user: dict = Depends(get_current_user), db:
     new_id = str(uuid4())
     contexts[(user_id, new_id)] = new_ctx
     
-    # Salvar filtro no BD
     filter_model = FilterModel(
         id=new_id,
         user_id=user_id,
