@@ -8,7 +8,7 @@ router = APIRouter(prefix="/health", tags=["Health"])
 @router.get("")
 def healthcheck(db: Session = Depends(get_db)):
     try:
-        db.execute(text("SELECT 1"))
+        db.execute(text("SELECT 1 FROM DUAL"))
     except Exception:
         return {"status": "comprometido"}
 
