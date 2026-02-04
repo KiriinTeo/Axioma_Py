@@ -1,122 +1,128 @@
-## **AxiomaPy**
+# **Axioma ERP Analítico**
 
-> AxiomaPy é um sistema modular para: coleta, processamento, análise e visualização de dados. Ele oferece um menu interativo para que o usuário possa importar dados, analisar estatísticas, criar gráficos e realizar operações como salvar ou visualizar os dados formatados.
+Este sistema realiza análises gráficas a partir de conjuntos de dados nos formatos .csv e .json. O projeto foi desenvolvido com foco na aplicação de uma arquitetura profissional, visando consolidar boas práticas, decisões técnicas e experiência prática em desenvolvimento de software. A utilização e extensão da aplicação são livres, desde que os créditos de autoria original sejam mantidos para Eduardo S. P Teodoro.
 
-### 🔍 Visão Geral
+## Visão Geral
 
 O sistema permite:
 
-* Coletar dados de: Arquivos Locais (CSV ou JSON por enquanto) ou de APIs externas configuráveis.
+- Analisar dados a partir de conjuntos locais em '.csv' e '.json'.
 
-* Realizar formatação e seleção de colunas.
+- Realizar filtragem e manupulação de datasets.
 
-* Gerar estatísticas descritivas e diversos tipos de gráficos.
+- Gerar estatísticas descritivas (média, minimo, máximo e afins), sumários e gráficos conforme os dados presentes.
 
-* Salvar os dados processados em arquivos JSON.
+- Exportar dados em formato '.csv'.
 
-* Executar análises práticas como desempenho de equipes, análise de preços, comparação de tempo de uso e diversas outros possíbilidades.
+- Executar análises práticas como desempenho de equipes, análise de preços, comparação de tempo de uso etc. Tudo se baseando nos dados entregues.
 
-* Navegar por todas as funcionalidades através de menus.
+- Rotas de API (endpoints) que permitem interagir com o sistema.
 
-### 🗂️ Estrutura de Pastas
+## **Stacks**
 
-**AxiomaPy**
+| **Tecnologia** | **Função** |
+|:------------|:--------|
+| FastAPI | Gerar API`s REST para o sistema |
+| Python | Linguagem de Programação e Estrutura de Dados |
+| Seaborn, Matplotlib e Pandas | Manipulção de dados e gráficos |
+| Pytest | Testes Unitários e workflow automático para Github |
+| SQLAlchemy | Camada ORM para abstração e genrenciamento dos dados |
+| SQLite | Persistência local de dados (DB local) |
+| Oracle OCI | Persistência de dados na nuvem (DB na nuvem) |
+| Uvicorn e Gunicorn | Servidores locais para o sistema, Gunicorn específico para Container |
+| Passlib, Bcrypt e Jose | Segurança e Autenticação via JWT (JSON Web Tokens) com verificação de Hash |
+| Pydantic | Verificação de dados aplicados e para definição de esquemas (schemas) |
+| HTTPX | Comunicação HTTP externa e assíncrona para as API`s |
+| Docker | Isolar o sistema em container com ambiente próprio em uma VM (Linux Ubuntu 22.04 LTS) |
 
-| Pastas               | Função da pasta                                       |
-|:-------------------- |:----------------------------------------------------- |
-| analise/             | Manipulação e formatação de dados                   |
-| coleta/              | Coleta local e via API                              |
-| utils/               | Funções auxiliares (seleção de arquivo, salvamento) |
-| visualizacao/        | Geração de gráficos e estatísticas                  |
-| testes/              | Testes automatizados                                |
-| .github/workflows/   | Pipeline de testes (GitHub Actions)                 |
+## *Arquitetura*
 
-**Arquivos Importantes**
+O Projeto foi dividido em várias pastas (camadas), cada uma com suas funções isoladas e utilizando uma das outras para que o sistema flua e funcione.
 
-| Arquivo             | Função
-|:--------------------|:----------------------------
-| api_Config.json     | Configuração das APIs utilizadas
-| requirements.txt    | Bibliotecas necessárias
-| main.py             | Execução principal do sistema
+```bash
+/Axioma_py
+├──./github/workflows                # Testes em conjunto com o Githubs Actions
+├──/api                              # Camada de rotas e endpoints para API REST
+   ├──/dependencies                  # Dependencias de sistema para funcionamento das API`s
+   ├──/routes                        # Rotas de API concisas com cada função do sistema
+   └──/schemas                       # Esquemas para grenciamento e padronização dos dados
+├──/application                      # Camdada de aplicação e Facade
+   ├──/services                      # Inicialização das funções 
+   └──/use_cases                     # Define os casos de uso do sistema como as funções interagem
+├──/auth                             # Camada de segurança e autenticação (login, registro etc)
+├──/config                           # Camada de configuração e dados importantes para o funcionamento
+├──/core                             # Camada de lógica analítica do sistema, trata e retorna os dados
+├──/data                             # Camada para armazenar dados exportados pelo sistema.
+├──/infra                            # Camada de infrastrutura e verificação interna do sistema
+   ├──/database                      # Sub-Camada com modelos ORM e repositórios de funções relevantes ao usuário
+      ├──/models                     # Modelos ORM
+      └──/repositories               # Repositórios de querys SQL do sistema
+   └──/logging                       # Camada de logging para checar transito do sistema e verificar saúde
+├──/interface                        # Camada para inclusão de Front-end UI (ainda vazia)
+├──/tests                            # Camada de testes para garantir funcionamento e integridade dos endpoint, funções etc
+├──/wallet                           # Credenciais necessárias para conexão mTLS com Oracle OCI (inclua sua wallet e configure para conectar ao seu DB da Oracle.)
 
+```
 
-### ✅ Como Usar o Sistema
+## **Utilizar o Sistema**
 
-#### Execute o arquivo principal:
+1. Copie pelo Github utilizando git clone:
+```bash
+git clone -b dev --single-branch https://github.com/KiriinTeo/Axioma_Py
+```
 
-~~~~bash
-python main.py
-~~~~
+2. Crie .env
+```text
+ENV=development
+DEBUG=true
 
-#### Utilize o menu interativo para:
+SECRET_KEY=desenvolvimiento-secreto-speciall-key-super_especiale
+DATABASE_URL=sqlite:///./dev.db
 
-1. Selecionar a origem dos dados: API ou arquivo local.
+```
+> Importante: este sistema tem pode se conectar á nuvem ou á um banco local, caso queira conectar com um banco na nuvem será necessário mudar este .env, que no momento indica o uso do SQLite em um ambiente de densenvolvimento, para caso queira conectar na Oracle em um ATP por exemplo, o .env seria assim:
 
-2. Formatar as colunas (selecionar e renomear).
+```text
+ENV=production
+DEBUG=false
 
-3. Explorar estatísticas descritivas.
+SECRET_KEY=chave-gerada-com-openssl-no-cmd
+ALGORITHM=HS256
 
-4. Gerar gráficos: barras, pizza, linha, boxplot, dispersão e histograma.
+ORACLE_USER=seu-usuario-oracle
+ORACLE_PASSWORD=a-senha-dele                             
+ORACLE_DSN=o-serviço-que-quer         # (geramente: db_high, _low, _medium, _tpurgent. Encontrado no tnsnames.ora da sua Wallet baixada no Oracle OCI)
 
-5. Realizar análises práticas como desempenho ou evolução de preços.
+TNS_ADMIN=caminho-para-sua-wallet
+WALLET_PASSWORD=senha-da-wallet       # você registra essa senha assim que for baixar sua instance ou regional wallet
+```
+> Para esse caso específico da Oracle você precisa baixar e descompactar sua wallet na pasta /wallet, o sistema possui um fallback para local caso a nuvem falhe, basta adicionar DATABASE_URL no .env production, mas ele atrapalha caso queira mesmo conectar somente na nuvem pois o sistema vai funcionar mesmo sem ela.
 
-6. Salvar os dados processados.
-
-### 🌐 Como Adicionar uma Nova API
-
-As APIs disponíveis são configuradas no arquivo api_Config.json.
-
-Exemplo de configuração:
-~~~~json
-{
-  "nomeAPI": {
-    "url": "https://apiSimples.org/search.json",
-    "params": ["query", "limit"],
-    "requires_key": false,
-    "default_response_path": "docs",
-    "default_fields": ["title", "author_name"]
-  },
-}
-~~~~
-
-**Passos:**
-
-#### Adicione uma nova API ao sistema preenchendo os campos:
-
-_nome:_ 
-
-_url:_
-
-_parametros:_
-
-_requires-key_: (para caso a api requer um login ou algo do tipo para utiliza-lá)
-
-_default-response-path_: (para definir a camada desejada dentro do JSON recebido da api)
-
-_default-fields_: (campos que o sistema sempre coleta na resposta da api)
- 
-#### O sistema automaticamente reconhecerá a nova API na execução.
-
-## 💡 Casos de Uso Recomendados
-
->Análise de Desempenho de Funcionários: Comparação entre horas trabalhadas e metas estabelecidas.
->
->>Análise de Preços: Exploração de listas de produtos e seus valores.
->
->>>Exploração de APIs Externas: Importação de informações de bibliotecas públicas ou APIs customizadas.
->
->>>>Análises Categóricas: Frequência de produtos, clientes ou eventos.
->
->>>>>Análises Temporais: Evolução de dados ao longo de períodos, como vendas mensais ou produção diária.
-
-## 🔧 Requisitos
-
-#### **Python 3.11 ou superior**
-
-Instale as dependências com:
-
-~~~bash
-
+3. Instale as dependências:
+```bash
 pip install -r requirements.txt
+```
 
-~~~
+4. Rode localmente:
+```bash
+uvicorn api.main:app --reload
+```
+
+> Caso queira rodar em um container, já existe Dockerfile e docker-compose para gerar com docker-engine em uma VM (recomendadeo e testado criar este container em um sistema operacional Linux Ubuntu 22.04 LTS) ai copie o sistema para a VM através do Git e rode lá com docker compose up --build
+
+5. Uso das rotas:
+
+Acesse o localhost, use o próprio endereço fornecido pelo Uvicorn ou coloque http://localhost:8000/docs no navegador (caso troque a porta 8000 em alguma parte do código, troque no endereço web também para acessar)
+
+Após entrar nesta tela:
+![Imagem do Swagger UI](./interface/AxiomaSwagger.PNG)
+
+Vá até a rota "Register" e clique no botão "Try it Out" como indica a imagem:
+![Imagem da rota Registro](./interface/register.PNG)
+
+Irá aparecer um campo JSON, insira o registro que quiser (ID precisa ser número) e clique em execute:
+![Imagem de Auth registro](./interface/logon.PNG)
+
+Tendo feito todo o registro, clique no botão branco e verde escrito "Authorize" com um cadeado ao lado, ele fica acima as rotas no canto superior direito delas. Aparecerá um pop-up do OAuth2 e nos campos email e password digite o email que registrou e a senha que registrou, não mexa nos campos "client_id" e "client_secret", mantenha "Client credential location" como 'Authorization header' também.
+
+A partir disto você se cadastrou como usuário do sistema e pode utiliza-lo, as rotas vão indicar o que é preciso, você executa elas com o 'Try it Out' como já fez no registro, em muitas delas você vai utilizar do 'dataset_id' cujo é obtido depois de carregar uma fonte de dados .csv ou .json para o sistema com a rota '/load' por exemplo.

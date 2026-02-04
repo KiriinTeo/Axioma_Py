@@ -3,4 +3,15 @@ seaborn
 matplotlib
 pytest
 requests
-
+python-multipart
+fastapi
+uvicorn
+SQLAlchemy>=1.4
+httpx
+python-jose[cryptography]
+passlib==1.7.4
+bcrypt==3.2.0
+pydantic[email]
+pydantic_settings
+gunicorn
+oracledb
