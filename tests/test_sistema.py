@@ -13,7 +13,6 @@ from infra.database.models.plot import PlotModel
 from infra.database.models.export import ExportModel
 from infra.database.models.analysis import AnalysisModel
 
-
 SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
 
 engine = create_engine(
@@ -84,8 +83,8 @@ class TestAuth:
             "id": "1"
         })
 
-        res = client.post("/auth/login", json={
-            "email": "login@example.com",
+        res = client.post("/auth/login", data={
+            "username": "login@example.com",
             "password": "123456"
         })
 
@@ -108,8 +107,8 @@ class TestDataset:
             "id": "1"
         })
     
-        res = client.post("/auth/login", json={
-            "email": "ds@example.com",
+        res = client.post("/auth/login", data={
+            "username": "ds@example.com",
             "password": "123456"
         })
 
@@ -489,8 +488,8 @@ class TestStats:
             "id": "1"
         })
 
-        res = client.post("/auth/login", json={
-            "email": "stats@example.com",
+        res = client.post("/auth/login", data={
+            "username": "stats@example.com",
             "password": "123456"
         })
 
@@ -503,8 +502,8 @@ class TestStats:
             "id": "1"
         })
 
-        login = client.post("/auth/login", json={
-            "email": "stats@example.com",
+        login = client.post("/auth/login", data={
+            "username": "stats@example.com",
             "password": "123456"
         })
 

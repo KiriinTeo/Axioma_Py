@@ -62,8 +62,7 @@ def list_datasets(user: dict = Depends(get_current_user), db: Session = Depends(
 
 
 @router.delete("/{dataset_id}")
-def delete_dataset(dataset_id: str, user: dict = Depends(get_current_user), db: Session = Depends(get_db)
-):
+def delete_dataset(dataset_id: str, user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
     user_id = int(user["sub"])
     key = (user_id, dataset_id)
 
