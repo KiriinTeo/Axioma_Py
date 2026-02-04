@@ -1,5 +1,8 @@
 # **Axioma ERP Analítico**
 
+![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.109-green)
+
 Este sistema realiza análises gráficas a partir de conjuntos de dados nos formatos .csv e .json. O projeto foi desenvolvido com foco na aplicação de uma arquitetura profissional, visando consolidar boas práticas, decisões técnicas e experiência prática em desenvolvimento de software. A utilização e extensão da aplicação são livres, desde que os créditos de autoria original sejam mantidos para Eduardo S. P Teodoro.
 
 ## Visão Geral
@@ -18,7 +21,7 @@ O sistema permite:
 
 - Rotas de API (endpoints) que permitem interagir com o sistema.
 
-## **Stacks**
+## *Stacks*
 
 | **Tecnologia** | **Função** |
 |:------------|:--------|
@@ -46,7 +49,7 @@ O Projeto foi dividido em várias pastas (camadas), cada uma com suas funções 
    ├──/dependencies                  # Dependencias de sistema para funcionamento das API`s
    ├──/routes                        # Rotas de API concisas com cada função do sistema
    └──/schemas                       # Esquemas para grenciamento e padronização dos dados
-├──/application                      # Camdada de aplicação e Facade
+├──/application                      # Camada de aplicação e Facade
    ├──/services                      # Inicialização das funções 
    └──/use_cases                     # Define os casos de uso do sistema como as funções interagem
 ├──/auth                             # Camada de segurança e autenticação (login, registro etc)
@@ -64,7 +67,7 @@ O Projeto foi dividido em várias pastas (camadas), cada uma com suas funções 
 
 ```
 
-## **Utilizar o Sistema**
+## *Utilizar o Sistema*
 
 1. Copie pelo Github utilizando git clone:
 ```bash
@@ -80,7 +83,7 @@ SECRET_KEY=desenvolvimiento-secreto-speciall-key-super_especiale
 DATABASE_URL=sqlite:///./dev.db
 
 ```
-> Importante: este sistema tem pode se conectar á nuvem ou á um banco local, caso queira conectar com um banco na nuvem será necessário mudar este .env, que no momento indica o uso do SQLite em um ambiente de densenvolvimento, para caso queira conectar na Oracle em um ATP por exemplo, o .env seria assim:
+> Importante: este sistema tem pode se conectar á nuvem ou á um banco local, caso queira conectar com um banco na nuvem será necessário mudar este .env, que no momento indica o uso do SQLite em um ambiente de desenvolvimento, para caso queira conectar na Oracle em um ATP por exemplo, o .env seria assim:
 
 ```text
 ENV=production
@@ -96,7 +99,7 @@ ORACLE_DSN=o-serviço-que-quer         # (geramente: db_high, _low, _medium, _tp
 TNS_ADMIN=caminho-para-sua-wallet
 WALLET_PASSWORD=senha-da-wallet       # você registra essa senha assim que for baixar sua instance ou regional wallet
 ```
-> Para esse caso específico da Oracle você precisa baixar e descompactar sua wallet na pasta /wallet, o sistema possui um fallback para local caso a nuvem falhe, basta adicionar DATABASE_URL no .env production, mas ele atrapalha caso queira mesmo conectar somente na nuvem pois o sistema vai funcionar mesmo sem ela.
+> Para esse caso específico da Oracle você precisa baixar e descompactar sua wallet na pasta /wallet, o sistema possui um fallback para local caso a nuvem falhe, basta adicionar DATABASE_URL no .env production, mas ele atrapalha caso queira mesmo conectar somente na nuvem, pois o sistema vai funcionar mesmo sem ela.
 
 3. Instale as dependências:
 ```bash
