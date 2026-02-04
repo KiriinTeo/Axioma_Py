@@ -111,7 +111,7 @@ pip install -r requirements.txt
 uvicorn api.main:app --reload
 ```
 
-> Caso queira rodar em um container, já existe Dockerfile e docker-compose para gerar com docker-engine em uma VM (recomendadeo e testado criar este container em um sistema operacional Linux Ubuntu 22.04 LTS) ai copie o sistema para a VM através do Git e rode lá com docker compose up --build
+> Caso queira rodar em um container, já existe Dockerfile e docker-compose para gerar com docker-engine em uma VM (recomendado e testado criar este container em um sistema operacional Linux Ubuntu 22.04 LTS) ai copie o sistema para a VM através do Git e rode lá com docker compose up --build
 
 5. Uso das rotas:
 
